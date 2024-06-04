@@ -78,7 +78,7 @@ nav > div > span {
     background-color: #E9E9E9;
     width: 300px;
     height: fit-content;
-    margin: 0 0 -50% -50px;
+    margin: 0 0 -47% -50px;
     padding: 10px 0 5px;
     border-radius: 10px;
     border: #B9B9B9 1px solid;
@@ -100,11 +100,17 @@ nav > div > span {
     border-left-width: 0;
     transition: background-color 0.3s ease;
 }
+.menu.active li > a {
+    display: flex;
+    align-items: center;
+}
 .menu.active ul {
     width: 300px;
     height: fit-content;
 }
-
+.mini-menu {
+    display: none;
+}
 
 /* search bar */
 .search-bar {
@@ -118,13 +124,20 @@ nav > div > span {
     height: 35px;
     margin: 0 0 0 3px;
 }
-.search-bar div:hover {
-    background-color: #B9B9B9;
-    border-radius: 8px 0 0 8px;
-}
-.search-bar div {
+.search-bar button {
+    justify-content: center;
+    display: flex;
+    background-color: #D9D9D9;
+    width: 40px;
+    height: 37px;
+    border: none;
+    outline: none;
     cursor: pointer;
+    border-radius: 10px 0 0 10px;
     transition: background-color 0.3s ease;
+}
+.search-bar button:hover {
+    background-color: #B9B9B9;
 }
 .search-bar label {
     align-items: center;
@@ -135,7 +148,7 @@ nav > div > span {
     border: none;
     background-color: #D9D9D9;
     font-size: 16px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     color: #112130;
     outline: none;
     width: 100%;
@@ -155,13 +168,17 @@ nav > div > span {
     filter: invert(1);
 }
 .icons {
+    min-width: 60px;
     margin: 0 10px;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: #FAFAFA;
 }
-
+.icons p {
+    margin: 1px 0;
+    text-align: center;
+}
 
 /* main */
 main {
@@ -175,6 +192,7 @@ main > div {
 
 /* baner */
 .baner {
+    width: 95%;
     height: 350px;
     margin: 0 auto;
     border-radius: 50px;
@@ -195,8 +213,8 @@ main > div {
 
 /* nagłówki */
 .naglowki {
-    margin-top: 50px;
-    width: 100%;
+    width: 95%;
+    margin: 50px auto 0 auto;
     overflow-x: scroll;
     justify-content: space-between;
     flex-wrap: nowrap;
@@ -243,8 +261,8 @@ main > div {
 
 /* oferty */
 .promocje {
-    margin-left: 5%;
-    margin-top: 50px;
+    width: 95%;
+    margin: 50px auto;
 }
 .oferty {
     max-width: 958px;
@@ -380,32 +398,48 @@ div > a > img {
         width: 70%;
         height: 100px;
     }
+    .bon {
+        height: 30vw;
+    }
     .bon h3 {
         font-size: 2vw;
     }
 }
 @media (max-width: 800px) {
+    nav {
+        z-index: 2;
+    }
     .menu {
         margin: 0 5px 0 5%;
     }
     .menu.active {
-        width: 210px;
-        margin: 0 0 -63% -50px;
+        border-radius: 0 10px 10px 0;
+        height: fit-content;
+        width: 250px;
+        margin: 0 0 -52vh -60px;
+        z-index: 3;
     }
-    .menu.active li {
-        width: 200px;
+    .menu.active > img {
+        margin-left: 10px;
     }
     .menu.active > ul {
         width: 210px;
     }
-    .search-bar {
-        display: none;
+    .menu.active li {
+        margin: 20px 0 20px -40px;
+        font-size: 1.2em;
+        width: 240px;
     }
-    #search-small{
-        cursor: pointer;
-        filter: invert(1);
-        width: 40px;
-        height: 40px;
+    .menu.active a > img {
+        width: 25px;
+        height: 25px;
+    }
+    .mini-menu {
+        margin-top: 50px;
+        display: block;
+    }
+    #icons {
+        display: none;
     }
     .icons {
         margin: 0 5px 10px 5px;
@@ -417,75 +451,9 @@ div > a > img {
     .icons span {
         display: none;
     }
-    .search {
-        z-index: 2;
-        background-color: #D9D9D9;
-        border-radius: 10px;
-        position: fixed;
-        left: 2.5%;
-    }
-    .search > img {
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-    }
-    .search form {
-        margin-top: 50px;
-        align-items: center;
-        width: 100%;
-    }
-    .search label {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-    .search input {
-        width: 256px;
-        height: 40px;
-        border-radius: 7px;
-        border: #125358 1px solid;
-        outline: none;
-        padding-left: 10px;
-        background-color: #FAFAFA;
-        font-family: 'Inter', sans-serif;
-        font-size: 1.1em;
-        color: #112130;
-        transition: color 0.3s ease;
-    }
-    .search input:placeholder-shown:not(:focus) {
-        color: rgba(17, 33, 48, 0.5);
-    }
-    .search button {
-        width: 60px;
-        margin-left: -25px;
-        margin-right: 50px;
-        display: flex;
-        height: 40px;
-        border-radius: 10px;
-        background-color: #125358;
-        border: none;
-        outline: none;
-        justify-content: center;
-        cursor: pointer;
-        transition: background-color 0.15s ease;
-    }
-    button[type="submit"] img {
-        width: 40px;
-        height: 40px;
-        align-self: center;
-        filter: invert(1);
-    }
-    .search > form > button:hover {
-        background-color: #002D31;
-    }
-    .search h3 {
-        text-align: center;
-        color: #125358;
-        font-size: 1.618em;
-        margin: 40px 0 0 0;
+    .search-bar {
+        width: unset;
+        margin-right: 25px;
     }
     .baner {
         height: 250px;

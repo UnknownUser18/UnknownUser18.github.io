@@ -30,7 +30,6 @@ nav a > p {
     margin: -5px 0 5px 0;
 }
 nav a {
-    padding: 0 10px;
     display: flex;
     align-items: center;
     color: #FAFAFA;
@@ -40,21 +39,26 @@ nav a {
 nav > div > img {
     filter: none;
 }
-.icons a > p {
-    margin: 0;
-}
-.icons a > img{
-    margin-top: -5px;
-}
-.icons > a {
-    margin-top: 12px;
+.icons img{
+    align-self: center;
+    height: 35px;
+    width: 35px;
+    filter: invert(1);
+    margin-top: 15px;
 }
 .icons {
+    justify-content: center;
     height: 72px;
+    min-width: 60px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #FAFAFA;
 }
-.icons img {
-    width: 40px;
-    height: 40px;
+.icons p {
+    margin: 1px 0 5px 0;
+    text-align: center;
 }
 nav img {
     filter: invert(1);
@@ -190,6 +194,12 @@ input[type="reset"]:hover {
     display: none;
 }
 @media (max-width: 768px) {
+    .icons {
+        min-width: unset;
+    }
+    .icons img {
+        margin-top: 0;
+    }
     form {
         width: 85%;
     }

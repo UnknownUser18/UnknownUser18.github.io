@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <title>X-Laptop</title>
 </head>
-<body onresize="search()" onscroll="hide()">
+<body onscroll="hide()">
     <nav class="flex">
         <div class="flex">
             <span onclick="show()" class="flex">
@@ -30,16 +30,21 @@
                     <li><a href="#"><img src="obrazy/headphones.png" alt="słuchawki ikona">Urządzenia domowe</a></li>
                     <!-- źródło - icon-finder -->
                 </ul>
+                <ul class="mini-menu">
+                    <li><a href="galeria.html"><img src="obrazy/gallery.png" alt="ikonka galerii">Galeria</a></li>
+                    <li><a href="formularz.html"><img src="obrazy/help.png" alt="ikonka pomocy">Formularz</a></li>
+                    <li><a href="#"><img src="obrazy/user.png" alt="użytkownik ikonka">Twoje Konto</a></li>
+                    <li><a href="#"><img src="obrazy/cart.png" alt="ikonka koszyka">Koszyk</a></li>
+                </ul>
             </div>
             <img src="obrazy/logo.png" class="logo" alt="logo">
         </div>
-        <img src="obrazy/search_icon.png" alt="ikonka lupy" id="search-small" onclick="search_show()">
         <!-- źródło - icon-finder -->
         <div class="search-bar flex">
-            <div>
+            <button>
                 <img src="obrazy/search_icon.png" alt="ikonka lupy">
                 <!-- źródło - icon-finder -->
-            </div>
+            </button>
             <label class="flex">
                 <input type="text" placeholder="Co chcesz wyszukać?">
             </label>
@@ -48,87 +53,73 @@
             <a href="galeria.html" class="icons">
                 <img src="obrazy/gallery.png" alt="galeria ikonka">
                 <!-- źródło - icon-finder -->
-                <span>Galeria</span>
+                <p>Galeria</p>
             </a>
             <a href="formularz.html" class="icons">
                 <img src="obrazy/help.png" alt="pomoc ikonka">
                 <!-- źródło - icon-finder -->
-                <span>Kontakt</span>
+                <p>Kontakt</p>
             </a>
             <a href="#" class="icons">
                 <img src="obrazy/user.png" alt="użytkownik ikonka">
                 <!-- źródło - icon-finder -->
-                <span>Twoje Konto</span>
+                <p>Twoje Konto</p>
             </a>
             <a href="#" class="icons">
                 <img src="obrazy/cart.png" alt="koszyk ikonka">
                 <!-- źródło - icon-finder -->
-                <span>Koszyk</span>
+                <p>Koszyk</p>
             </a>
             <a href="index.html" class="icons">
                 <img src="/obrazy/home.png" alt="dom ikonka">
                 <!-- źródło - icon-finder -->
-                <span>Strona Główna</span>
+                <p>Strona Główna</p>
             </a>
         </div>
     </nav>
     <main>
         <div class="black-screen" style="opacity: 0 ; width: 0 ; height: 0"></div>
-        <section class="search" style="opacity: 0 ; width: 0 ; height: 0">
-            <img src="obrazy/cancel.png" alt="krzyżyk" onclick="search_hide()" style="display: none" id="img-small">
-            <form method="post" class="flex" style="display: none" id="search-form">
-                <label>
-                    <input type="text" name="wyszukaj" required placeholder="Co chcesz wyszukać?">
-                </label>
-                <button type="submit"><img src="obrazy/search_icon.png" alt="wyszukaj"></button>
-            </form>
-            <div id="div-small" style="display: none">
-                <h3>Ostatnie wyszukiwania</h3>
-            </div>
+        <section class="baner flex">
+            <h1>Lepsza niż konkurencja!</h1>
         </section>
-        <div>
-            <section class="baner flex">
-                <h1>Lepsza niż konkurencja!</h1>
-            </section>
-            <section class="naglowki flex">
-                <article>
-                    <h2>Nagłówek</h2>
-                    <div class="flex">
-                        <img src="obrazy/laptop.jpg" alt="laptop">
-                        <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
-                        <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
-                    </div>
-                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>. <a href="#">Czytaj więcej</a></p>
-                </article>
-                <article>
-                    <h2>Nagłówek</h2>
-                    <div class="flex">
-                        <img src="obrazy/laptop.jpg" alt="laptop">
-                        <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
-                        <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
-                    </div>
-                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>.  <a href="#">Czytaj więcej</a></p>
-                </article>
-                <article>
-                    <h2>Nagłówek</h2>
-                    <div class="flex">
-                        <img src="obrazy/laptop.jpg" alt="laptop">
-                        <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
-                        <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
-                    </div>
-                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>. <a href="#">Czytaj więcej</a></p>
-                </article>
-                <article>
-                    <h2>Nagłówek</h2>
-                    <div class="flex">
-                        <img src="obrazy/laptop.jpg" alt="laptop">
-                        <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
-                        <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
-                    </div>
-                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>.  <a href="#">Czytaj więcej</a></p>
-                </article>
-            </section>
-        </div>
+        <section class="naglowki flex">
+            <article>
+                <h2>Nagłówek</h2>
+                <div class="flex">
+                    <img src="obrazy/laptop.jpg" alt="laptop">
+                    <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
+                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
+                </div>
+                <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>. <a href="#">Czytaj więcej</a></p>
+            </article>
+            <article>
+                <h2>Nagłówek</h2>
+                <div class="flex">
+                    <img src="obrazy/laptop.jpg" alt="laptop">
+                    <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
+                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
+                </div>
+                <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>.  <a href="#">Czytaj więcej</a></p>
+            </article>
+            <article>
+                <h2>Nagłówek</h2>
+                <div class="flex">
+                    <img src="obrazy/laptop.jpg" alt="laptop">
+                    <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
+                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
+                </div>
+                <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>. <a href="#">Czytaj więcej</a></p>
+            </article>
+            <article>
+                <h2>Nagłówek</h2>
+                <div class="flex">
+                    <img src="obrazy/laptop.jpg" alt="laptop">
+                    <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
+                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
+                </div>
+                <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>.  <a href="#">Czytaj więcej</a></p>
+            </article>
+        </section>
 
         <section class="promocje flex">
             <section class="oferty">

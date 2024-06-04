@@ -45,60 +45,66 @@ nav > div {
     justify-content: space-between;
     align-items: center;
 }
-.icons a > img {
-    width: 40px;
-    height: 40px;
-}
-.icons a {
-    margin-top: 12px;
-}
-.icons a > p {
-    margin: 0;
-}
-.icons a > img {
-    margin-top: -5px;
+.icons img{
+    align-self: center;
+    height: 35px;
+    width: 35px;
+    filter: invert(1);
+    margin-top: 15px;
 }
 .icons {
+    justify-content: center;
     height: 72px;
+    min-width: 60px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #FAFAFA;
+}
+.icons p {
+    margin: 1px 0 5px 0;
+    text-align: center;
 }
 /* Galeria */
 main {
-    border-radius: 20px;
-    height: fit-content;
-    width: 80%;
-    margin: 0 auto;
+    height: 100%;
     background-color: #D9D9D9;
+    width: 80%;
+    margin: 72px auto;
+    border-radius: 30px;
 }
-main h1 {
+h1 {
     text-align: center;
-    padding: 20px;
+    margin: 0;
+    padding: 10px;
     color: #125358;
-    font-size: 4em;
+    font-size: 3em;
 }
 main > div {
-    flex-wrap: nowrap;
+    justify-content: space-around;
+    height: fit-content;
     display: flex;
-    height: 450px;
-    margin: 0 auto;
-    overflow-x: auto;
-    border-radius: 10px;
+    overflow-x: scroll;
 }
-main div > div {
-    width: 50%;
-    padding: 10px;
-}
-main div > img {
-    width: 100%;
-    height: 83%;
-}
-main div > p {
+main p {
     text-align: center;
-    color: #112130;
-    font-size: 1.5em;
+    font-size: 20px;
+    margin: 0;
+}
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin: 10px;
 }
 @media (max-width: 800px) {
-    nav div > a {
-        margin-left: 0;
+    .icons {
+        min-width: unset;
+        margin: 0;
+    }
+    .icons img {
+        margin-top: 0;
     }
     nav a > p {
         display: none;
@@ -107,17 +113,9 @@ main div > p {
         margin-top: 20px;
     }
     main {
-        width: 100%;
+        width: 95%;
     }
     main > div {
-        display: block;
-        overflow-x: hidden;
-    }
-    main div > div {
-        width: 100%;
-    }
-    main div > img {
-        width: 100%;
-        height: 100%;
+        justify-content: unset;
     }
 }
