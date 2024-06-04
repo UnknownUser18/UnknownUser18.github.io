@@ -1,0 +1,222 @@
+body {
+    background-color: #E9E9E9;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+}
+/* nav */
+nav {
+    position: sticky;
+    top: 0;
+    right: 0;
+    height: 72px;
+    background-color: #3E5C5F;
+    color: #FAFAFA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pierwszy {
+    width: 8%;
+}
+nav > div {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+nav > div > a {
+    margin-left: 10px;
+}
+nav a > p {
+    margin: -5px 0 5px 0;
+}
+nav a {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    color: #FAFAFA;
+    text-decoration: none;
+    flex-flow: column;
+}
+nav > div > img {
+    filter: none;
+}
+.icons a > p {
+    margin: 0;
+}
+.icons a > img{
+    margin-top: -5px;
+}
+.icons > a {
+    margin-top: 12px;
+}
+.icons {
+    height: 72px;
+}
+.icons img {
+    width: 40px;
+    height: 40px;
+}
+nav img {
+    filter: invert(1);
+    width: 55px;
+    height: 55px;
+}
+/* Formularz */
+header {
+    text-align: center;
+    color: #112130;
+}
+form {
+    border: #125358 2px solid;
+    border-radius: 20px;
+    padding: 0 20px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+label > span > span{
+    color: #d32828;
+}
+label > input, label > span {
+    color: #112130;
+}
+form img {
+    align-self: center;
+    height: 18px;
+    margin: 0 2px 0 0;
+}
+legend img {
+    height: 30px;
+    margin: 0 3px 0 0;
+
+}
+label > span {
+    font-size: 20px;
+    margin: 10px 0;
+    display: flex;
+}
+label > input, label > textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+label > input {
+    padding: 5px;
+    border: 0;
+    border-radius: 10px;
+    outline: 0;
+    transition: all 0.3s ease;
+}
+label > input:invalid:not(:placeholder-shown):not(:focus) {
+    border: 1px solid #d32828;
+}
+label > input:placeholder-shown:not(:focus) {
+    color: rgba(17, 33, 48, 0.5);
+}
+label > input:not(:placeholder-shown):not(:focus):valid {
+    border: 1px solid #125358;
+}
+abbr {
+    cursor: help;
+    text-decoration: dotted underline;
+}
+textarea {
+    line-height: 1.5em;
+    padding: 5px;
+    border: 0;
+    border-radius: 10px;
+    outline: 0;
+    transition: all 70ms ease;
+    max-width: 428px;
+    min-width: 200px;
+    max-height: 200px;
+    min-height: 100px;
+}
+fieldset {
+    border-radius: 20px;
+    border-width: 4px;
+}
+legend {
+    font-size: 30px;
+    font-weight: 700;
+    color: #112130;
+    margin: 20px 0;
+}
+fieldset > label {
+    display: flex;
+    margin: -5px 0;
+    align-items: center;
+}
+fieldset > label > span {
+    width: 40%;
+}
+fieldset > label > span {
+    display: inline;
+    font-size: 18px;
+}
+.zgody > label > span {
+    width: 100%;
+}
+.zgody > label {
+    margin: -10px 0;
+}
+form div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 20px 0;
+}
+input[type="submit"], input[type="reset"] {
+    font-size: 20px;
+    font-family: inherit;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+input[type="submit"] {
+    background-color: #125358;
+    color: #FAFAFA;
+}
+input[type="submit"]:hover {
+    background-color: #0A3D4C;
+}
+input[type="reset"] {
+    background-color: #d32828;
+    color: #FAFAFA;
+}
+input[type="reset"]:hover {
+    background-color: #9f1c1c;
+}
+.abbr-mobile {
+    display: none;
+}
+@media (max-width: 768px) {
+    form {
+        width: 85%;
+    }
+    textarea {
+        max-width: 85vw;
+    }
+    fieldset {
+        margin-left: -10px;
+        padding: 10px;
+    }
+    abbr {
+        text-decoration: none;
+        cursor: default;
+    }
+    .abbr-mobile {
+        display: block;
+        color: #112130;
+        font-size: 14px;
+        font-style: italic;
+    }
+    fieldset .abbr-mobile {
+        margin: 10px 0;
+    }
+    nav a > p {
+        display: none;
+    }
+    .icons > a {
+        margin-top: 20px;
+    }
+}

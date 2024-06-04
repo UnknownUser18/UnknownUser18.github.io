@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <title>X-Laptop</title>
+</head>
+<body onresize="search()" onscroll="hide()">
+    <nav class="flex">
+        <div class="flex">
+            <span onclick="show()" class="flex">
+                <img src="obrazy/menu_white.png" alt="menu" id="bar" onclick="show()">
+            </span>
+            <!-- źródło - https://vectorportal.com/storage/x-ninalogo7_3252.jpg -->
+            <div class="menu" onclick="hide()">
+                <img src="obrazy/menu.png" alt="menu">
+                <ul>
+                    <li><a href="#"><img src="obrazy/cpu.png" alt="cpu ikona">Części komputerowe</a></li>
+                    <!-- źródło - icon-finder -->
+                    <li><a href="#"><img src="obrazy/pc.png" alt="komputer ikona">Laptopy i komputery</a></li>
+                    <!-- źródło - icon-finder -->
+                    <li><a href="#"><img src="obrazy/usb.png" alt="pendrive ikona">Akcesoria</a></li>
+                    <!-- źródło - icon-finder -->
+                    <li><a href="#"><img src="obrazy/headphones.png" alt="słuchawki ikona">Urządzenia domowe</a></li>
+                    <!-- źródło - icon-finder -->
+                </ul>
+            </div>
+            <img src="obrazy/logo.png" class="logo" alt="logo">
+        </div>
+        <img src="obrazy/search_icon.png" alt="ikonka lupy" id="search-small" onclick="search_show()">
+        <!-- źródło - icon-finder -->
+        <div class="search-bar flex">
+            <div>
+                <img src="obrazy/search_icon.png" alt="ikonka lupy">
+                <!-- źródło - icon-finder -->
+            </div>
+            <label class="flex">
+                <input type="text" placeholder="Co chcesz wyszukać?">
+            </label>
+        </div>
+        <div class="flex" id="icons">
+            <a href="galeria.html" class="icons">
+                <img src="obrazy/gallery.png" alt="galeria ikonka">
+                <!-- źródło - icon-finder -->
+                <span>Galeria</span>
+            </a>
+            <a href="formularz.html" class="icons">
+                <img src="obrazy/help.png" alt="pomoc ikonka">
+                <!-- źródło - icon-finder -->
+                <span>Kontakt</span>
+            </a>
+            <a href="#" class="icons">
+                <img src="obrazy/user.png" alt="użytkownik ikonka">
+                <!-- źródło - icon-finder -->
+                <span>Twoje Konto</span>
+            </a>
+            <a href="#" class="icons">
+                <img src="obrazy/cart.png" alt="koszyk ikonka">
+                <!-- źródło - icon-finder -->
+                <span>Koszyk</span>
+            </a>
+            <a href="index.html" class="icons">
+                <img src="/obrazy/home.png" alt="dom ikonka">
+                <!-- źródło - icon-finder -->
+                <span>Strona Główna</span>
+            </a>
+        </div>
+    </nav>
+    <main>
+        <div class="black-screen" style="opacity: 0 ; width: 0 ; height: 0"></div>
+        <section class="search" style="opacity: 0 ; width: 0 ; height: 0">
+            <img src="obrazy/cancel.png" alt="krzyżyk" onclick="search_hide()" style="display: none" id="img-small">
+            <form method="post" class="flex" style="display: none" id="search-form">
+                <label>
+                    <input type="text" name="wyszukaj" required placeholder="Co chcesz wyszukać?">
+                </label>
+                <button type="submit"><img src="obrazy/search_icon.png" alt="wyszukaj"></button>
+            </form>
+            <div id="div-small" style="display: none">
+                <h3>Ostatnie wyszukiwania</h3>
+            </div>
+        </section>
+        <div>
+            <section class="baner flex">
+                <h1>Lepsza niż konkurencja!</h1>
+            </section>
+            <section class="naglowki flex">
+                <article>
+                    <h2>Nagłówek</h2>
+                    <div class="flex">
+                        <img src="obrazy/laptop.jpg" alt="laptop">
+                        <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
+                        <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
+                    </div>
+                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>. <a href="#">Czytaj więcej</a></p>
+                </article>
+                <article>
+                    <h2>Nagłówek</h2>
+                    <div class="flex">
+                        <img src="obrazy/laptop.jpg" alt="laptop">
+                        <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
+                        <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
+                    </div>
+                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>.  <a href="#">Czytaj więcej</a></p>
+                </article>
+                <article>
+                    <h2>Nagłówek</h2>
+                    <div class="flex">
+                        <img src="obrazy/laptop.jpg" alt="laptop">
+                        <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
+                        <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
+                    </div>
+                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>. <a href="#">Czytaj więcej</a></p>
+                </article>
+                <article>
+                    <h2>Nagłówek</h2>
+                    <div class="flex">
+                        <img src="obrazy/laptop.jpg" alt="laptop">
+                        <!-- źródło - https://pixabay.com/pl/photos/laptop-urz%C4%85dzenia-cyfrowe-5673901/ -->
+                        <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda!</p>
+                    </div>
+                    <p><b>Lorem ipsum dolor</b> sit amet consectetur <b>adipisicing</b> elit. Doloribus voluptatem suscipit, commodi nostrum, <i>in quaerat ratione consequatur</i> eaque explicabo fugiat autem reiciendis <b>quas</b> assumenda! Lorem ipsum dolor sit amet consectetur adipisicing <b>quas</b>. Magni impedit, dolor <i>illo expedita molestiae quas</i> qui tempore dolores eos ipsa neque quisquam adipisci. <b>Adipisicing</b>.  <a href="#">Czytaj więcej</a></p>
+                </article>
+            </section>
+        </div>
+
+        <section class="promocje flex">
+            <section class="oferty">
+                <h3>Oferty Dnia</h3>
+                <div class="flex">
+                    <article>
+                        <img src="obrazy/headphones.jpg" alt="słuchawki">
+                        <!-- źródło - https://pixabay.com/pl/photos/muzyka-d%C5%BAwi%C4%99k-audio-rozrywka-4092614/ -->
+                        <h4>Nazwa Produktu</h4>
+                        <p>Cena zł</p>
+                    </article>
+                    <article>
+                        <img src="obrazy/headphones.jpg" alt="słuchawki">
+                        <!-- źródło - https://pixabay.com/pl/photos/muzyka-d%C5%BAwi%C4%99k-audio-rozrywka-4092614/ -->
+                        <h4>Nazwa Produktu</h4>
+                        <p>Cena zł</p>
+                    </article>
+                    <article>
+                        <img src="obrazy/headphones.jpg" alt="słuchawki">
+                        <!-- źródło - https://pixabay.com/pl/photos/muzyka-d%C5%BAwi%C4%99k-audio-rozrywka-4092614/ -->
+                        <h4>Nazwa Produktu</h4>
+                        <p>Cena zł</p>
+                    </article>
+                    <br>
+                    <article>
+                        <img src="obrazy/headphones.jpg" alt="słuchawki">
+                        <!-- źródło - https://pixabay.com/pl/photos/muzyka-d%C5%BAwi%C4%99k-audio-rozrywka-4092614/ -->
+                        <h4>Nazwa Produktu</h4>
+                        <p>Cena zł</p>
+                    </article>
+                    <article>
+                        <img src="obrazy/headphones.jpg" alt="słuchawki">
+                        <!-- źródło - https://pixabay.com/pl/photos/muzyka-d%C5%BAwi%C4%99k-audio-rozrywka-4092614/ -->
+                        <h4>Nazwa Produktu</h4>
+                        <p>Cena zł</p>
+                    </article>
+                    <article>
+                        <img src="obrazy/headphones.jpg" alt="słuchawki">
+                        <!-- źródło - https://pixabay.com/pl/photos/muzyka-d%C5%BAwi%C4%99k-audio-rozrywka-4092614/ -->
+                        <h4>Nazwa Produktu</h4>
+                        <p>Cena zł</p>
+                    </article>
+                </div>
+            </section>
+            <section class="bon flex">
+                <h3>Zgarnij bon na laptopy ASUS!</h3>
+            </section>
+        </section>
+    </main>
+    <footer class="flex">
+        <section>
+            <h4>Informacje</h4>
+            <ul>
+                <li><a href="#">O nas</a></li>
+                <li><a href="#">Regulamin</a></li>
+                <li><a href="#">Polityka Prywatności</a></li>
+            </ul>
+            <p><b>Wszelkie prawa zastrzeżone.</b></p>
+        </section>
+        <section>
+            <h4>Kontakt</h4>
+            <ul>
+                <li><p>Telefon:</p> <a href="tel:+748628195">748 628 195</a></li>
+                <li><p>E-mail:</p> <a href="mailto:sklep@gmail.com">sklep@gmail.com</a></li>
+                <li><p>Adres: ul. Zimna 124, 40-004 Katowice</p></li>
+                <li><p>Poniedziałek-Piątek: 8:00 - 20:00 <br>Sobota-Niedziela: 10:00 - 18:00
+                    </p>
+                </li>
+            </ul>
+            <div class="flex">
+                <a href="#"><img src="obrazy/facebook.png" alt="facebook"></a>
+                <!-- źródło - icon-finder -->
+                <a href="#"><img src="obrazy/twitter.png" alt="twitter"></a>
+                <!-- źródło - icon-finder -->
+                <a href="#"><img src="obrazy/instagram.png" alt="instagram"></a>
+                <!-- źródło - icon-finder -->
+                <a href="#"><img src="obrazy/youtube.png" alt="youtube"></a>
+                <!-- źródło - icon-finder -->
+            </div>
+        </section>
+    </footer>
+    <script src="js.js"></script>
+</body>
+</html>

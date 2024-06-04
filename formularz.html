@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="formularz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <title>X-Laptop - Kontakt</title>
+</head>
+<body>
+    <nav>
+        <div class="pierwszy">
+            <a href="index.html"><img src="obrazy/leftarrow.png" alt="lewa strzałka na powrót"><p>Powrót</p></a>
+            <img src="obrazy/logo.png" alt="logo">
+        </div>
+        <div>
+            <div class="icons">
+                <a href="galeria.html">
+                    <img src="obrazy/gallery.png" alt="galeria ikonka">
+                    <p>Galeria</p>
+                </a>
+            </div>
+            <div class="icons">
+                <a href="#">
+                    <img src="obrazy/user.png" alt="użytkownik ikonka">
+                    <p>Twoje Konto</p>
+                </a>
+            </div>
+            <div class="icons">
+                <a href="#">
+                    <img src="obrazy/cart.png" alt="koszyk ikonka">
+                    <p>Koszyk</p>
+                </a>
+            </div>
+            <div class="icons">
+                <a href="index.html">
+                    <img src="obrazy/home.png" alt="dom ikonka">
+                    <p>Strona główna</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <header>
+            <h1>Formularz</h1>
+        </header>
+        <form method="post">
+            <label>
+                <span><img src="obrazy/user.png" alt="użytkownik ikonka">Imię:<span>*</span></span>
+                <input type="text" placeholder="Imię" required>
+            </label>
+            <label>
+                <span><img src="obrazy/user.png" alt="użytkownik ikonka">Nazwisko:<span>*</span></span>
+                <input type="text" placeholder="Nazwisko" required>
+            </label>
+            <fieldset>
+                <legend>Adres</legend>
+                <label>
+                    <span><img src="obrazy/pin.png" alt="pinezka ikonka"><abbr title="Format: 12-345 ; 12345 ; 12 345">Kod pocztowy:</abbr><span>*</span></span>
+                    <input type="text" placeholder="Kod Pocztowy" required pattern="^[0-9]{2}[-, ,][0-9]{3}$">
+                </label>
+                <span class="abbr-mobile">Format: 12-345 ; 12345 ; 12 345</span>
+                <label>
+                    <span><img src="obrazy/city.png" alt="miasto ikonka">Miasto:<span>*</span></span>
+                    <input type="text" placeholder="Miasto" required>
+                </label>
+                <label>
+                    <span><img src="obrazy/road.png" alt="ikonka drogi">Ulica:<span>*</span></span>
+                    <input type="text" placeholder="Ulica" required>
+                </label>
+                <label>
+                    <span><img src="obrazy/home.png" alt="ikonka domu">Numer Domu:<span>*</span></span>
+                    <input type="number" min="1" step="1" placeholder="" required>
+                </label>
+                <label>
+                    <span><img src="obrazy/home.png" alt="ikonka domu">Numer Mieszkania:</span>
+                    <input type="number" min="1" step="1" placeholder="">
+                </label>
+            </fieldset>
+
+            <label>
+                <span><img src="obrazy/phone.png" alt=""><abbr title="Format : 123-456-789 ; 123456789 ; 123 456 789">Numer telefonu:</abbr><span>*</span></span>
+                <span class="abbr-mobile">Format : 123-456-789 ; 123456789 ; 123 456 789</span>
+                <input type="tel" placeholder="Numer telefonu" required pattern="^[0-9]{3}[-, ,][0-3]{3}[-, ,][0-9]{3}$">
+            </label>
+            <label>
+                <span><img src="obrazy/email.png" alt="email ikonka">E-Mail:<span>*</span></span>
+                <input type="email" placeholder="Adres e-mail" required>
+            </label>
+            <label>
+                <span><img src="obrazy/pencil.png" alt="ikonka pencil">Wiadomość:</span>
+                <textarea placeholder="Napisz do nas"></textarea>
+            </label>
+            <fieldset class="zgody">
+                <legend><img src="obrazy/check.png" alt="znaczek">Zgody</legend>
+                <label>
+                    <input type="checkbox" required>
+                    <span>Zgoda na przetwarzanie danych osobowych.<span>*</span></span>
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox">
+                    <span>Zgoda na przesyłanie newsletter.</span>
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" required>
+                    <span>Potwierdzam, że zapoznałem się z regulaminem.<span>*</span></span>
+                </label>
+            </fieldset>
+                <div>
+                    <label>
+                        <input type="submit" value="Wyślij">
+                    </label>
+                    <label>
+                        <input type="reset">
+                    </label>
+                </div>
+        </form>
+    </main>
+</body>
+</html>
