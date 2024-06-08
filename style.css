@@ -455,6 +455,16 @@ div > a > img {
         width: unset;
         margin-right: 25px;
     }
+    .search-bar input {
+        font-size: 14px;
+    }
+    .search-bar button {
+        width: 30px;
+        height: 30px;
+    }
+    .search-bar img {
+        height: 30px;
+    }
     .baner {
         height: 250px;
         border-radius: 25px;
