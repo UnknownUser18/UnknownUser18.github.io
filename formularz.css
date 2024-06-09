@@ -208,10 +208,10 @@ input[type="reset"]:hover {
         width: 85%;
     }
     textarea {
-        max-width: 85vw;
+        width: 80vw;
+        height: 300px;
     }
     fieldset {
-        width: 50%;
         margin-left: -15px;
         padding: 10px;
     }
