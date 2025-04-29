@@ -1,0 +1,105 @@
+@import "../assets/styles/global";
+main {
+  @include figure;
+  margin: 120px 140px 70px 140px;
+  & > div:first-of-type {
+    margin-bottom: 10px;
+    transform: translateX(-70px);
+    color: $color-6;
+    font-size: 12px;
+    font-weight: 400;
+    span {
+      &:first-of-type {
+        margin: 0 10px;
+      }
+      &:last-of-type {
+        color: $color-5;
+      }
+    }
+  }
+  h1 {
+    font-size: 35px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+  article {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    &:first-of-type {
+      margin-bottom: 30px;
+      figure {
+        grid-column: 1 / span 4;
+      }
+      h3 {
+        grid-column: 6 / span 5;
+      }
+      p {
+        grid-column: 6 / span 4;
+      }
+    }
+    &:last-of-type {
+      margin-bottom: 150px;
+      figure {
+        background-image: none;
+        grid-column: 6 / span 4;
+        img {
+          width: 100%;
+          transform: none;
+          margin: 0;
+        }
+      }
+      p {
+        grid-column: 1 / span 4;
+      }
+      h3 {
+        grid-column: 1 / span 5;
+      }
+    }
+    h3 {
+      grid-row: 2 / span 1;
+      padding-top: 20px;
+      place-self: center start;
+      font-weight: 600;
+      font-size: 35px;
+    }
+    p {
+      grid-row: 3 / span 2;
+      @include p;
+    }
+    figure {
+      grid-row: 1 / span 4;
+    }
+  }
+  & > div:last-of-type {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 16px;
+    div {
+      cursor: pointer;
+      position: relative;
+      width: 400px;
+      height: 400px;
+      &::before {
+        transition: transition($long, opacity);
+        opacity: 0;
+        @include shadow(rgba($color-5, 0.55));
+      }
+      &:hover::before {
+        opacity: 1;
+        background-image: url("/assets/svgs/japanese.svg");
+        background-size: 35% 35%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+      }
+    }
+    img {
+      z-index: -1;
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
