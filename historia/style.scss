@@ -76,7 +76,7 @@ main {
   & > div:last-of-type {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 16px;
+    row-gap: 16px;
     div {
       cursor: pointer;
       position: relative;
@@ -100,6 +100,54 @@ main {
       position: relative;
       width: 100%;
       height: auto;
+    }
+  }
+}
+.show-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color-5, 0.5);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > div {
+    transition: transition($long, transform);
+    position: relative;
+    background-color: $color-1;
+    width: 35%;
+    height: 75%;
+    border-radius: 25px;
+    box-shadow: $light-box-shadow;
+    transform: translateY(200%);
+    &.done {
+      transform: none;
+    }
+  }
+  img {
+    border-radius: 25px 25px 0 0;
+    user-select: none;
+    pointer-events: none;
+    width: 100%;
+    height: auto;
+  }
+  p {
+    text-align: center;
+  }
+  svg {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    color: $color-2;
+    transition: transition($medium, color);
+    &:hover {
+      color: $color-3;
     }
   }
 }

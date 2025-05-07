@@ -66,8 +66,21 @@ nav {
     &:hover span {
       background-color: $color-3;
     }
+    &.active {
+      span {
+        &:first-of-type {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        &:nth-of-type(2) {
+          opacity: 0;
+        }
+        &:last-of-type {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+      }
+    }
     span {
-      transition: transition($medium, background-color);
+      transition: transition($medium, background-color), transition($medium, transform), transition($medium, opacity);
       display: inline-block;
       width: 100%;
       height: 2px;

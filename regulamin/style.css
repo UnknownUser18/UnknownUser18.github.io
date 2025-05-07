@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 nav {
   width: 100%;
@@ -69,8 +69,17 @@ nav .hamburger {
 nav .hamburger:hover span {
   background-color: #e31019;
 }
+nav .hamburger.active span:first-of-type {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+nav .hamburger.active span:nth-of-type(2) {
+  opacity: 0;
+}
+nav .hamburger.active span:last-of-type {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 nav .hamburger span {
-  transition: 300ms background-color cubic-bezier(0.53, 0.1, 0.58, 1);
+  transition: 300ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 300ms transform cubic-bezier(0.53, 0.1, 0.58, 1), 300ms opacity cubic-bezier(0.53, 0.1, 0.58, 1);
   display: inline-block;
   width: 100%;
   height: 2px;
@@ -204,6 +213,44 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: #fff;
   color: #000;
+  overflow-x: hidden;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+body > ul {
+  transition: 200ms transform cubic-bezier(0.53, 0.1, 0.58, 1);
+  position: fixed;
+  top: calc(30px + 2.5rem);
+  height: 100%;
+  width: 400px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  right: 0;
+  z-index: 2;
+  background-color: #000;
+  list-style: none;
+  transform: translateX(100%);
+}
+body > ul.done {
+  transform: none;
+}
+body > ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+body > ul li.active a {
+  color: #e31019;
+  font-weight: 700;
+}
+body > ul li:not(.active):hover a {
+  color: #e31019;
+}
+body > ul li a {
+  display: block;
+  padding: 13px 15px;
+  transition: 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
+  color: #fff;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 button, input, select, textarea {
