@@ -291,6 +291,9 @@ main > div:first-of-type a:hover {
 main > div:first-of-type span:first-of-type {
   margin: 0 10px;
 }
+main > div:first-of-type span:nth-of-type(odd) {
+  margin: 0 10px;
+}
 main > div:first-of-type span:last-of-type {
   color: #000;
 }
@@ -301,6 +304,7 @@ main figure div {
   position: absolute;
   top: 10px;
   left: 10px;
+  font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;
@@ -371,7 +375,8 @@ main section {
   column-gap: 155px;
   row-gap: 85px;
 }
-main a {
+main a:not(main > div > a) {
+  font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;
@@ -381,7 +386,7 @@ main a {
   background-color: #eaeaea;
   transition: 200ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
 }
-main a:hover {
+main a:not(main > div > a):hover {
   background-color: #e31019;
   color: #fff;
 }

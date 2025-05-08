@@ -4,38 +4,7 @@ main {
   @include navigation;
   @include main(110px, 250px);
   @include figure-date;
-  & > div:last-of-type {
-    margin: 70px auto 0 auto;
-    width: 40%;
-    display: grid;
-    place-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
-    span {
-      @include p;
-      user-select: none;
-      &:not(.dot) {
-        cursor: pointer;
-      }
-      transition: transition($short, color);
-      &:first-of-type, &:last-of-type {
-        font-size: 24px;
-        font-family: 'Inter', 'Poppins', sans-serif;
-      }
-      &:first-of-type {
-        place-self: center start;
-      }
-      &:last-of-type {
-        place-self: center end;
-      }
-      &:not(.dot):hover {
-        color: $color-3;
-      }
-      &.current {
-        font-weight: 600;
-        color: $color-3;
-      }
-    }
-  }
+  @include scroller;
   h1 {
     user-select: none;
     text-align: center;
@@ -63,7 +32,7 @@ main {
     column-gap: 155px;
     row-gap: 85px;
   }
-  a {
+  a:not(main > div > a) {
     @include button;
     background-color: $color-2;
     transition: transition($short, background-color), transition($short, color);
@@ -72,5 +41,4 @@ main {
       color: $color-1;
     }
   }
-
 }

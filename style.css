@@ -339,6 +339,7 @@ header a:not(.switch) {
   transition: 300ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 300ms border-color cubic-bezier(0.53, 0.1, 0.58, 1);
   border: 1px solid #fff;
   box-shadow: 10px 10px 40px -12px rgba(0, 0, 0, 0.4);
+  font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;
@@ -469,6 +470,7 @@ main section:first-child article button {
   transform: translateY(100px);
   place-self: end start;
   background-color: #e31019;
+  font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;
@@ -549,6 +551,7 @@ main section:last-child article a {
   grid-column: 6/span 2;
   grid-row: 5/span 1;
   transition: 200ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
+  font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;

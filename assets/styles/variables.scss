@@ -4,6 +4,7 @@ $color-3: #e31019;
 $color-4: #121011;
 $color-5: #000;
 $color-6: #858585;
+$color-7: #828282;
 $light-box-shadow: 10px 10px 40px -12px rgba(0,0,0,0.4);
 $cubic-bezier: cubic-bezier(.53,.1,.58,1);
 $short: 200ms;
@@ -13,6 +14,7 @@ $long: 500ms;
   @return $property $duration $cubic-bezier;
 }
 @mixin button {
+  font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;
@@ -96,6 +98,9 @@ $long: 500ms;
     }
     span {
       &:first-of-type {
+        margin: 0 10px;
+      }
+      &:nth-of-type(odd) {
         margin: 0 10px;
       }
       &:last-of-type {
@@ -185,6 +190,40 @@ $long: 500ms;
       color: $color-2;
       transition: transition($medium, color);
       &:hover {
+        color: $color-3;
+      }
+    }
+  }
+}
+@mixin scroller {
+  & > div:last-of-type {
+    margin: 70px auto 0 auto;
+    width: 40%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+    span {
+      @include p;
+      user-select: none;
+      &:not(.dot) {
+        cursor: pointer;
+      }
+      transition: transition($short, color);
+      &:first-of-type, &:last-of-type {
+        font-size: 24px;
+        font-family: 'Inter', 'Poppins', sans-serif;
+      }
+      &:first-of-type {
+        place-self: center start;
+      }
+      &:last-of-type {
+        place-self: center end;
+      }
+      &:not(.dot):hover {
+        color: $color-3;
+      }
+      &.current {
+        font-weight: 600;
         color: $color-3;
       }
     }

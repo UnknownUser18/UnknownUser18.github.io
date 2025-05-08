@@ -290,6 +290,9 @@ main > div:first-of-type a:hover {
 main > div:first-of-type span:first-of-type {
   margin: 0 10px;
 }
+main > div:first-of-type span:nth-of-type(odd) {
+  margin: 0 10px;
+}
 main > div:first-of-type span:last-of-type {
   color: #000;
 }
@@ -300,6 +303,7 @@ main figure div {
   position: absolute;
   top: 10px;
   left: 10px;
+  font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;
@@ -313,6 +317,7 @@ main > a {
   display: block;
   width: fit-content;
   margin: 60px auto 0 auto;
+  font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;
