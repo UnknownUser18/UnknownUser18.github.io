@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import "../assets/styles/inter.css";
 nav {
   width: 100%;
   place-items: center;
@@ -277,8 +277,7 @@ a {
 }
 
 main {
-  margin: 110px auto 70px auto;
-  width: calc(100% - 280px);
+  margin: 110px 250px 70px 250px;
 }
 main > div:first-of-type {
   transform: translateX(-70px);
@@ -295,45 +294,96 @@ main > div:first-of-type span:first-of-type {
 main > div:first-of-type span:last-of-type {
   color: #000;
 }
+main figure {
+  position: relative;
+}
+main figure div {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 12px 35px;
+  text-transform: lowercase;
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  font-size: 14px;
+  background-color: #000;
+  color: #fff;
+}
+main > div:last-of-type {
+  margin: 70px auto 0 auto;
+  width: 40%;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+}
+main > div:last-of-type span {
+  font-size: 15px;
+  line-height: 30px;
+  user-select: none;
+  transition: 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
+}
+main > div:last-of-type span:not(.dot) {
+  cursor: pointer;
+}
+main > div:last-of-type span:first-of-type, main > div:last-of-type span:last-of-type {
+  font-size: 24px;
+  font-family: "Inter", "Poppins", sans-serif;
+}
+main > div:last-of-type span:first-of-type {
+  place-self: center start;
+}
+main > div:last-of-type span:last-of-type {
+  place-self: center end;
+}
+main > div:last-of-type span:not(.dot):hover {
+  color: #e31019;
+}
+main > div:last-of-type span.current {
+  font-weight: 600;
+  color: #e31019;
+}
 main h1 {
+  user-select: none;
+  text-align: center;
   text-transform: uppercase;
   font-size: 35px;
   letter-spacing: 0.2em;
-  text-align: center;
+  margin-bottom: 40px;
 }
-main p, main li {
+main article {
+  display: grid;
+  place-items: center start;
+  grid-template-rows: 0.5fr 1fr 0.3fr;
+}
+main article h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+main article p {
+  place-self: start;
   font-size: 15px;
   line-height: 30px;
-  font-size: 16px;
 }
-main h2 {
-  font-family: "Montserrat", "Poppins", sans-serif;
-  font-weight: 700;
-  margin: 45px 0 40px 0;
+main section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 155px;
+  row-gap: 85px;
 }
-main ol {
-  font-weight: 300;
+main a {
+  padding: 12px 35px;
+  text-transform: lowercase;
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  font-size: 14px;
+  background-color: #eaeaea;
+  transition: 200ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
 }
-main ol li {
-  margin-left: 32px;
-}
-main ol:first-child {
-  list-style-type: none;
-}
-main ol:first-child li {
-  counter-increment: list-counter;
-}
-main ol:first-child li::before {
-  content: counter(list-counter, lower-alpha) ")";
-  margin-right: 8px;
-}
-main ol:nth-child(2) > li {
-  position: relative;
-}
-main ol:nth-child(2) > li:before {
-  content: "2.";
-  position: absolute;
-  left: -30px;
+main a:hover {
+  background-color: #e31019;
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

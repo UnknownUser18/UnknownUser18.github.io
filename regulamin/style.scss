@@ -1,27 +1,14 @@
 @import "../assets/styles/global";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 main {
-  margin: 110px auto 70px auto;
+  @include main(110px, auto);
   width: calc(100% - 280px);
+  @include navigation;
   h1 {
     text-transform: uppercase;
     font-size: 35px;
     letter-spacing: 0.2em;
     text-align: center;
-  }
-  div:first-of-type {
-    transform: translateX(-70px);
-    color: $color-6;
-    font-size: 12px;
-    font-weight: 400;
-    span {
-      &:first-of-type {
-        margin: 0 10px;
-      }
-      &:last-of-type {
-        color: $color-5;
-      }
-    }
   }
   p, li {
     @include p;

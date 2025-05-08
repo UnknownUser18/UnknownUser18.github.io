@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 nav {
   width: 100%;
   place-items: center;
@@ -277,8 +276,7 @@ a {
 }
 
 main {
-  margin: 110px auto 70px auto;
-  width: calc(100% - 280px);
+  margin: 110px 280px 70px 280px;
 }
 main > div:first-of-type {
   transform: translateX(-70px);
@@ -295,45 +293,152 @@ main > div:first-of-type span:first-of-type {
 main > div:first-of-type span:last-of-type {
   color: #000;
 }
+main figure {
+  position: relative;
+}
+main figure div {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 12px 35px;
+  text-transform: lowercase;
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  font-size: 14px;
+  background-color: #000;
+  color: #fff;
+}
+main > a {
+  display: block;
+  width: fit-content;
+  margin: 60px auto 0 auto;
+  padding: 12px 35px;
+  text-transform: lowercase;
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  font-size: 14px;
+  background-color: #eaeaea;
+  transition: 200ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
+}
+main > a:hover {
+  color: #fff;
+  background-color: #e31019;
+}
+main > div:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  column-gap: 60px;
+}
+main > div:nth-of-type(2) article {
+  display: grid;
+  grid-template-rows: 0.4fr 1fr;
+}
+main > div:nth-of-type(2) article h2 {
+  margin-top: 30px;
+  place-self: center start;
+  font-weight: 600;
+  font-size: 26px;
+}
+main > div:nth-of-type(2) article p {
+  margin-top: 10px;
+  place-self: start;
+}
+main > div:last-of-type {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  row-gap: 13px;
+}
+main > div:last-of-type div {
+  cursor: pointer;
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+main > div:last-of-type div::before {
+  transition: 500ms opacity cubic-bezier(0.53, 0.1, 0.58, 1);
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+main > div:last-of-type div:hover::before {
+  opacity: 1;
+  background-image: url("/assets/svgs/japanese.svg");
+  background-size: 35% 35%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
 main h1 {
+  user-select: none;
+  text-align: center;
   text-transform: uppercase;
   font-size: 35px;
   letter-spacing: 0.2em;
-  text-align: center;
+  margin-bottom: 40px;
 }
-main p, main li {
+main p {
   font-size: 15px;
   line-height: 30px;
-  font-size: 16px;
 }
-main h2 {
-  font-family: "Montserrat", "Poppins", sans-serif;
-  font-weight: 700;
-  margin: 45px 0 40px 0;
+main div ~ p {
+  margin-top: 50px;
 }
-main ol {
-  font-weight: 300;
+
+.show-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-main ol li {
-  margin-left: 32px;
-}
-main ol:first-child {
-  list-style-type: none;
-}
-main ol:first-child li {
-  counter-increment: list-counter;
-}
-main ol:first-child li::before {
-  content: counter(list-counter, lower-alpha) ")";
-  margin-right: 8px;
-}
-main ol:nth-child(2) > li {
+.show-image > div {
+  transition: 500ms transform cubic-bezier(0.53, 0.1, 0.58, 1);
   position: relative;
+  background-color: #fff;
+  width: 35%;
+  height: 75%;
+  border-radius: 25px;
+  box-shadow: 10px 10px 40px -12px rgba(0, 0, 0, 0.4);
+  transform: translateY(200%);
 }
-main ol:nth-child(2) > li:before {
-  content: "2.";
+.show-image > div.done {
+  transform: none;
+}
+.show-image img {
+  border-radius: 25px 25px 0 0;
+  user-select: none;
+  pointer-events: none;
+  width: 100%;
+  height: auto;
+}
+.show-image p {
+  text-align: center;
+}
+.show-image svg {
   position: absolute;
-  left: -30px;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  color: #eaeaea;
+  transition: 300ms color cubic-bezier(0.53, 0.1, 0.58, 1);
+}
+.show-image svg:hover {
+  color: #e31019;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -3,7 +3,7 @@ const nav = document.querySelector('nav');
 const data = {
   'Strona Główna': '/',
   'Produkty': 'products/',
-  'Blog': 'blog/',
+  'Aktualności': 'aktualnosci/',
   'Kontakt': 'contact/',
   'Historia': 'historia/'
 };
@@ -21,7 +21,7 @@ hamburger.addEventListener('click', () => {
       if ((data[name] && window.location.pathname === `/${data[name]}`) || (!data[name] && window.location.pathname === '/'))
         li.classList.add('active');
       a.href = data[name];
-      a.title = data[name];
+      a.title = Object.keys(data).find(key => data[key] === data[name]);
       a.innerText = name;
       li.appendChild(a);
       menu.appendChild(li);
