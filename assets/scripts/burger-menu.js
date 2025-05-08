@@ -2,10 +2,10 @@ const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('nav');
 const data = {
   'Strona Główna': '/',
-  'Produkty': 'products/',
-  'Aktualności': 'aktualnosci/',
-  'Kontakt': 'contact/',
-  'Historia': 'historia/'
+  'Produkty': '/produkty/',
+  'Aktualności': '/aktualnosci/',
+  'Kontakt': '/contact/',
+  'Historia': '/historia/'
 };
 hamburger.addEventListener('click', () => {
   document.body.classList.toggle('no-scroll');

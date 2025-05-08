@@ -2,7 +2,16 @@ let currentArticleNumber = 1;
 const bar = document.querySelector('main > div:last-of-type');
 const totalNumbers = 13;
 function renderNumbers() {
-  bar.innerHTML = '<span>←</span>';
+  bar.innerHTML = '';
+  const prevButton = document.createElement('span');
+  prevButton.innerText = '←';
+  prevButton.addEventListener('click', () => {
+    if (currentArticleNumber > 0) {
+      currentArticleNumber--;
+      renderNumbers();
+    }
+  });
+  bar.appendChild(prevButton);
   for (let i = 0; i < totalNumbers; i++) {
     if (i < 4 || i >= totalNumbers - 4 || (i >= currentArticleNumber - 1 && i <= currentArticleNumber + 1)) {
       let span = document.createElement('span');
@@ -11,8 +20,10 @@ function renderNumbers() {
         span.classList.add('current');
       }
       span.addEventListener('click', () => {
-        currentArticleNumber = i;
-        renderNumbers();
+        if (currentArticleNumber !== i) {
+          currentArticleNumber = i;
+          renderNumbers();
+        }
       });
       bar.appendChild(span);
     } else if (
@@ -25,18 +36,14 @@ function renderNumbers() {
       bar.appendChild(dots);
     }
   }
-  bar.innerHTML += '<span>→</span>';
-  let firstspan = bar.querySelector('span:first-child');
-  let lastspan = bar.querySelector('span:last-child');
-  firstspan.addEventListener('click', () => {
-    if (currentArticleNumber < 1) return;
-    currentArticleNumber--;
-    renderNumbers();
+  const nextButton = document.createElement('span');
+  nextButton.innerText = '→';
+  nextButton.addEventListener('click', () => {
+    if (currentArticleNumber < totalNumbers - 1) {
+      currentArticleNumber++;
+      renderNumbers();
+    }
   });
-  lastspan.addEventListener('click', () => {
-    if (currentArticleNumber >= totalNumbers-1) return;
-    currentArticleNumber++;
-    renderNumbers();
-  });
+  bar.appendChild(nextButton);
 }
 renderNumbers();
