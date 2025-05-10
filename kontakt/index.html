@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Description of the page">
-  <meta name="author" content="Author Name">
-  <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-  <title>Aktualności | Sekiryu Sakila</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Kontakt | Sekiryu Sakila</title>
 </head>
 <body>
   <nav>
-    <a href="/" title="Strona Główna"><img src="/assets/svgs/logo.svg" alt="Logo Sekiryu"></a>
+    <a href="../" title="Strona Główna"><img src="../assets/svgs/logo.svg" alt="Logo Sekiryu"></a>
     <label>
       <input type="text" name="search" placeholder="Wpisz szukaną frazę">
     </label>
@@ -42,46 +40,56 @@
     </div>
   </nav>
   <main>
-    <div><a href="../">Strona główna</a> <span>></span><span>Aktualności</span></div>
-    <h1>Aktualności</h1>
+    <div><a href="../">Strona główna</a> <span>></span><span>Kontakt</span></div>
+    <h1>Kontakt</h1>
+    <p>Firma OMC jest dystrybutorem produktów marki MASAHIRO w Polsce.<br>Zapraszamy do współpracy odbiorców hurtowych, sklepy z nożami, kucharzy, restauratorów, hotelarzy, blogerów, dekoratorów wnętrz i projektantów.</p>
     <div>
-      <figure>
-        <div>20.05.2024</div>
-        <img src="/assets/pictures/noz1.webp" alt="Noż Sekiryu">
-      </figure>
-      <article>
-        <h2>Lorem ipsum dolor sit amet consectetur turpis nisi nullam at aliquam lectus</h2>
-        <p>Lorem ipsum dolor sit amet consectetur. Nisl eget imperdiet urna mattis fermentum consequat aliquam nunc. Proin lectus lacus odio diam ac. Tortor augue elementum dui aliquet ac a aliquam. Dictum suspendisse enim leo egestas nec condimentum consequat. Potenti dolor ac congue ut ut. Morbi nulla vestibulum felis sodales enim turpis hendrerit fermentum. Odio faucibus blandit ut egestas tellus. Dis lacus tempor est lobortis. Aliquam blandit vitae risus elit. Penatibus in ultricies tortor lorem in venenatis nisi id. Est congue adipiscing volutpat tincidunt. </p>
-      </article>
+      <img src="/assets/svgs/chinskieznaczki.svg" alt="Chińskie znaczki">
+      <span>
+        <img src="/assets/svgs/pinezka.svg" alt="Pinezka">
+        <b>Sekiryu International</b>
+        <span>1 rue Rohan<br>67790 STEINBOURG, France</span>
+      </span>
+      <span>
+        <img src="/assets/svgs/mail.svg" alt="Mail">
+        <b>Napisz do nas</b>
+        <span><a href="mailto:meilleur@couteau.info" target="_blank" title="Kontakt z nami">meilleur@couteau.info</a></span>
+      </span>
     </div>
-    <p>Lorem ipsum dolor sit amet consectetur. Nisi sit ullamcorper adipiscing vulputate tincidunt condimentum id lacus fringilla. Justo blandit pellentesque leo enim. Sapien dolor nec bibendum maecenas quis mauris. Sed enim et vulputate malesuada placerat. Enim ullamcorper lorem turpis mattis nisi sollicitudin eget dui. Id euismod eget ipsum ornare orci dictumst mattis libero. Interdum mauris vitae vestibulum aliquam in semper etiam neque accumsan. Ornare tristique risus sapien sit. Id semper maecenas massa tincidunt phasellus lobortis duis. Sit lectus elementum facilisi in eu nulla eleifend. Lectus porttitor at rhoncus at. In morbi ornare mauris lorem. Viverra etiam a egestas pellentesque interdum tortor a. Posuere nec sed morbi sit mauris integer eget. In ac platea facilisi ullamcorper sed laoreet in amet. Egestas in dui nisi tempor quis pretium. Nullam commodo cursus quam pulvinar lobortis ultrices massa feugiat nunc. Posuere ultrices purus praesent tristique ipsum leo ut risus. Porttitor fusce nunc justo pharetra in pretium morbi dui vitae. Nisi amet mauris curabitur fringilla odio habitasse elementum quis. Cursus amet sit sit rhoncus dui enim vel euismod donec. Elementum egestas facilisi pretium ultrices. Hendrerit quis sit feugiat non luctus cras vivamus in. Euismod neque mi lobortis in sed rhoncus pretium. Eu fames suscipit risus consectetur eget nunc non id. Enim mauris a dui vitae. Sem nisl tincidunt viverra tellus massa tellus duis condimentum sit. Sem at proin elementum parturient. Arcu non adipiscing at elementum.</p>
-    <div>
-      <div>
-        <img src="/assets/pictures/gallery/first.webp" alt="Noże Sekiryu">
-      </div>
-      <div>
-        <img src="/assets/pictures/gallery/second.webp" alt="Noże Sekiryu">
-      </div>
-      <div>
-        <img src="/assets/pictures/gallery/third.webp" alt="Noże Sekiryu">
-      </div>
-      <div>
-        <img src="/assets/pictures/gallery/fourth.webp" alt="Noże Sekiryu">
-      </div>
-      <div>
-        <img src="/assets/pictures/gallery/fifth.webp" alt="Noże Sekiryu">
-      </div>
-      <div>
-        <img src="/assets/pictures/gallery/sixth.webp" alt="Noże Sekiryu">
-      </div>
-      <div>
-        <img src="/assets/pictures/gallery/seventh.webp" alt="Noże Sekiryu">
-      </div>
-      <div>
-        <img src="/assets/pictures/gallery/eighth.webp" alt="Noże Sekiryu">
-      </div>
-    </div>
-    <a href="/aktualnosci/" title="Powrót do listy">Powrót do listy</a>
+    <section>
+      <h2>Formularz kontaktowy</h2>
+      <form action="#" method="post">
+        <label for="imie-nazwisko">
+          <b>Imię i nazwisko</b>
+          <input type="text" id="imie-nazwisko" name="imie-nazwisko" placeholder="Jan Kowalski" required>
+        </label>
+        <label for="email">
+          <b>E-mail</b>
+          <input type="email" id="email" name="email" placeholder="jankowalski@emial.pl" required>
+        </label>
+        <label for="telefon">
+          <b>Telefon</b>
+          <input type="tel" id="telefon" name="telefon" placeholder="+48 500 500 500" pattern="\+48\s\d{3}\s\d{3}\s\d{3}" required>
+        </label>
+        <label for="wiadomosc">
+          <b>Wiadomość</b>
+          <textarea id="wiadomosc" name="wiadomosc" rows="5" placeholder="Wiadomość" required></textarea>
+        </label>
+        <label for="captcha">
+          <b>Udowodnij, że nie jesteś robotem</b>
+          <span><canvas></canvas><img src="/assets/svgs/reload.svg" alt="Załaduj nowy" onclick="generateCaptcha()"></span>
+          <input type="text" name="captcha" id="captcha" required placeholder="Przepisz kod z obrazka">
+        </label>
+        <label for="zgoda">
+          <span>
+            <input type="checkbox" id="zgoda" name="zgoda" required>
+            <span></span>
+          </span>
+          <span>Aenean accumsan magna id dapibus vehicula. Sed viverra mi posuere auctor porttitor. Nullam lectus mauris, tincidunt semper efficitur eu, ullamcorper ac dui. Duis lobortis vitae felis sed interdum. Donec ut blandit mi. Donec sagittis purus at nulla dapibus, vitae ultricies ligula dapibus. Pellentesque lobortis nisl at nibh imperdiet, vitae porttitor turpis malesuada. Pellentesque commodo justo a justo ultricies maximus.</span>
+        </label>
+        <button>Wyślij wiadomość</button>
+      </form>
+    </section>
   </main>
   <footer>
     <img src="/assets/svgs/logo.svg" alt="Logo Sekiryu">
@@ -90,7 +98,7 @@
     <h3>Dostawa i płatność</h3>
     <ul>
       <li><a href="/regulamin/" title="Regulamin">Regulamin</a></li>
-      <li><a href="/kontakt/">Kontakt</a></li>
+      <li>Kontakt</li>
       <li>Wysyłka</li>
       <li>Oferta</li>
       <li>Płatności</li>
@@ -117,6 +125,6 @@
     <p>Created by <img src="/assets/svgs/undicom.svg" alt="Undicom"> Undicom.pl</p>
   </footer>
   <script src="/assets/scripts/burger-menu.js"></script>
-  <script src="/assets/scripts/gallery.js"></script>
+  <script src="/assets/scripts/canvas.js"></script>
 </body>
 </html>

@@ -1,0 +1,163 @@
+@import '../assets/styles/global';
+main {
+  @include navigation;
+  @include main(110px, 360px);
+  & > div:nth-of-type(2) {
+    margin: 65px 0 80px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      user-select: none;
+      pointer-events: none;
+    }
+    & > span {
+      margin-left: 120px;
+      width: 25%;
+      display: grid;
+      column-gap: 20px;
+      grid-template-columns: 0.2fr 1fr;
+      font-size: 15px;
+      img {
+        grid-row: 1 / span 2;
+        place-self: center;
+      }
+      b {
+        font-weight: 700;
+      }
+      span {
+        grid-column: 2 / 2;
+      }
+    }
+  }
+  h1, h2 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+  h1 {
+    font-size: 35px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  p {
+    margin-top: 30px;
+    text-align: center;
+    @include p;
+  }
+  form {
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 55px;
+    label {
+      display: grid;
+      grid-template-rows: 0.2fr 1fr;
+      &[for='wiadomosc'], &[for='captcha'] {
+        grid-column: 1 / -1;
+      }
+      &[for='captcha'] {
+        grid-template-columns: 0.2fr 1fr;
+        :nth-last-child(2) {
+          grid-column: 1 / 2;
+          grid-row: 2 / 2;
+        }
+        :last-child {
+          grid-column: 2 / 2;
+          grid-row: 2 / 2;
+          width: fit-content;
+        }
+        b {
+          grid-column: 1 / -1;
+        }
+        span {
+          width: 250px;
+          border-radius: 10px;
+          display: grid;
+          grid-template-columns: 1fr 0.2fr;
+          place-items: center;
+          margin-right: 10px;
+          border: 1px solid rgba($color-5, 0.15);
+          canvas {
+            user-select: none;
+            pointer-events: none;
+          }
+          img {
+            cursor: pointer;
+            padding: 10px;
+            border-left: 1px solid rgba($color-5, 0.15);
+          }
+        }
+      }
+      &[for='zgoda'] {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        grid-column: 1 / -1;
+        input {
+          display: none;
+          &:checked {
+            + span:first-of-type {
+              &:after {
+                display: block;
+              }
+            }
+          }
+        }
+        & > span {
+          &:first-of-type > span {
+            min-width: 20px;
+            width: 20px;
+            height: 20px;
+            border: 1px solid rgba($color-5, 0.15);
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:after {
+              content: '';
+              display: none;
+              background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNXB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxOCAxNSIgd2lkdGg9IjE4cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZXNjLz48ZGVmcy8+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI+PGcgZmlsbD0iIzAwMDAwMCIgaWQ9IkNvcmUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00MjMuMDAwMDAwLCAtNDcuMDAwMDAwKSI+PGcgaWQ9ImNoZWNrIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MjMuMDAwMDAwLCA0Ny41MDAwMDApIj48cGF0aCBkPSJNNiwxMC4yIEwxLjgsNiBMMC40LDcuNCBMNiwxMyBMMTgsMSBMMTYuNiwtMC40IEw2LDEwLjIgWiIgaWQ9IlNoYXBlIi8+PC9nPjwvZz48L2c+PC9zdmc+");
+              background-size: 10px;
+              background-repeat: no-repeat;
+              background-position: center;
+              width: 10px;
+              height: 10px;
+              border-radius: 3px;
+            }
+          }
+          &:last-of-type {
+            margin-left: 20px;
+          }
+        }
+      }
+      b {
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      input, textarea {
+        cursor: text;
+        padding: 12px 20px;
+        border: 1px solid rgba($color-5, 0.2);
+        border-radius: 10px;
+        &:not(input) {
+          resize: none;
+        }
+      }
+    }
+    button {
+      transition: transition($short, background-color), transition($short, color);
+      @include button;
+      grid-column: 1 / -1;
+      margin: 0 auto;
+      background-color: $color-5;
+      color: $color-1;
+      &:hover {
+        color: $color-1;
+        background-color: $color-3;
+      }
+    }
+  }
+}
