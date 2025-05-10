@@ -17,9 +17,9 @@ hamburger.addEventListener('click', () => {
     for (let name of Object.keys(data)) {
       let li = document.createElement('li');
       let a = document.createElement('a');
-      console.log(window.location.pathname)
-      if ((data[name] && window.location.pathname === `/${data[name]}`) || (!data[name] && window.location.pathname === '/'))
+      if (window.location.pathname.replace(/\/$/, '') === data[name].replace(/\/$/, '')) {
         li.classList.add('active');
+      }
       a.href = data[name];
       a.title = Object.keys(data).find(key => data[key] === data[name]);
       a.innerText = name;
