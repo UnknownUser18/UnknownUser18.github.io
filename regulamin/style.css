@@ -1,5 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --font-50: 50px;
+  --font-35: 35px;
+  --font-30: 30px;
+  --font-26: 26px;
+  --font-24: 24px;
+  --font-22: 22px;
+  --font-18: 18px;
+  --font-17: 17px;
+  --font-16: 16px;
+  --font-15: 15px;
+  --font-14: 14px;
+  --font-13: 13px;
+  --font-12: 12px;
+}
+
+@media screen and (max-width: 720px) {
+  :root {
+    --font-50: 30px;
+    --font-35: 30px;
+    --font-30: 28px;
+    --font-26: 24px;
+    --font-25: 22px;
+    --font-24: 20px;
+    --font-22: 20px;
+    --font-15: 14px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .show-image > div {
+    height: 50% !important;
+  }
+}
 nav {
   width: 100%;
   place-items: center;
@@ -46,7 +79,11 @@ nav ul {
   place-self: center end;
   width: 60%;
   justify-content: space-evenly;
-  list-style: none;
+}
+nav ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 nav svg {
   width: 30%;
@@ -117,7 +154,7 @@ footer h3 {
   font-weight: 600;
 }
 footer p {
-  font-size: 13px;
+  font-size: var(--font-13);
   line-height: 26px;
 }
 footer p:first-of-type {
@@ -133,11 +170,8 @@ footer p:last-of-type {
   grid-column: 10/span 2;
   grid-row: 7/span 1;
 }
-footer ul {
-  list-style: none;
-}
 footer ul li {
-  font-size: 15px;
+  font-size: var(--font-15);
 }
 footer ul li a {
   transition: 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
@@ -165,7 +199,7 @@ footer ul:nth-of-type(2) li:last-of-type {
   margin-bottom: 0;
 }
 footer h3 {
-  font-size: 22px;
+  font-size: var(--font-22);
 }
 footer h3:first-of-type {
   grid-column: 4/span 1;
@@ -197,6 +231,164 @@ footer hr:last-of-type {
   grid-row: 5/span 1;
 }
 
+.login {
+  z-index: 3;
+  position: fixed;
+  top: 70px;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 0 0 10px 10px;
+}
+.login label {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.login label b {
+  font-weight: 700;
+}
+.login label b span {
+  color: #e31019;
+}
+.login label input {
+  background-color: #fff;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.login a {
+  margin-left: 10px;
+  color: #e31019;
+}
+.login a:hover {
+  text-decoration: underline;
+}
+.login button {
+  margin: 10px 0;
+  width: 100% !important;
+  text-transform: none !important;
+}
+.login button[type=submit] {
+  transition: 300ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 300ms color cubic-bezier(0.53, 0.1, 0.58, 1);
+  background-color: #e31019;
+  color: #fff;
+  font-weight: 400;
+  padding: 12px 35px;
+  text-transform: lowercase;
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  font-size: var(--font-14);
+}
+.login button[type=submit]:hover {
+  background-color: #858585;
+  color: #fff;
+}
+.login button[type=button] {
+  transition: 300ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 300ms color cubic-bezier(0.53, 0.1, 0.58, 1);
+  background-color: #fff;
+  color: #000;
+  font-weight: 400;
+  padding: 12px 35px;
+  text-transform: lowercase;
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  font-size: var(--font-14);
+}
+.login button[type=button]:hover {
+  background-color: #e31019;
+  color: #fff;
+}
+
+@media screen and (max-width: 1280px) {
+  nav ul {
+    width: 100%;
+  }
+  footer {
+    padding: 5%;
+  }
+}
+@media screen and (max-width: 720px) {
+  nav {
+    padding: 10px 3%;
+    grid-template-columns: 0.4fr 0.6fr;
+  }
+  nav > :last-child {
+    grid-column: 3/span 1;
+  }
+  nav label {
+    display: none;
+  }
+  nav img {
+    width: 150px;
+  }
+  nav ul {
+    grid-column: 2/span 1;
+  }
+  nav li {
+    width: 18px;
+  }
+  footer {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: unset;
+  }
+  footer > * {
+    grid-column: 1/-1 !important;
+  }
+  footer img {
+    place-self: center;
+  }
+  footer h3 {
+    margin-top: 10px;
+  }
+  footer h3:first-of-type {
+    grid-row: 2/span 1;
+  }
+  footer h3:nth-of-type(2) {
+    place-self: start;
+    grid-row: 4/span 1;
+  }
+  footer h3:last-of-type {
+    grid-row: 6/span 1;
+  }
+  footer hr:first-of-type {
+    grid-row: 8/span 1;
+  }
+  footer hr:last-of-type {
+    grid-row: 10/span 1;
+  }
+  footer figure {
+    margin: 10px 0;
+    grid-row: 7/span 2;
+  }
+  footer ul {
+    margin-bottom: 10px;
+  }
+  footer ul:first-of-type {
+    grid-row: 3/span 1;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  footer ul:nth-of-type(2) {
+    place-self: start;
+  }
+  footer ul:nth-of-type(2) li {
+    margin: 0;
+  }
+  footer p:nth-last-of-type(2), footer p:last-of-type {
+    grid-row: 11/span 1;
+    grid-column: 1/span 1;
+  }
+  footer p:last-of-type {
+    grid-column: 2/span 1;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -266,16 +458,44 @@ button:not(input), input:not(input), select:not(input), textarea:not(input) {
   cursor: pointer;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
-}
-
 a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
 }
 
+ol, ul {
+  list-style: none;
+}
+
+@media screen and (max-width: 1280px) {
+  body main {
+    margin: 110px 50px 70px 50px;
+  }
+  body main > div:first-of-type {
+    transform: none;
+  }
+}
+@media screen and (max-width: 720px) {
+  body > ul {
+    top: calc(28px + 1rem);
+    width: 90%;
+  }
+  .search {
+    z-index: 3;
+    width: 70%;
+    position: fixed;
+    top: 45%;
+    left: 10%;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  .search svg {
+    color: #e31019;
+  }
+}
 main {
   margin: 110px auto 70px auto;
   width: calc(100% - 280px);
@@ -283,7 +503,7 @@ main {
 main > div:first-of-type {
   transform: translateX(-70px);
   color: #858585;
-  font-size: 12px;
+  font-size: var(--font-12);
   font-weight: 400;
 }
 main > div:first-of-type a:hover {
@@ -299,15 +519,15 @@ main > div:first-of-type span:last-of-type {
   color: #000;
 }
 main h1 {
-  text-transform: uppercase;
-  font-size: 35px;
+  font-size: var(--font-35);
+  font-weight: 300;
   letter-spacing: 0.2em;
+  text-transform: uppercase;
   text-align: center;
 }
 main p, main li {
-  font-size: 15px;
+  font-size: var(--font-16);
   line-height: 30px;
-  font-size: 16px;
 }
 main h2 {
   font-family: "Montserrat", "Poppins", sans-serif;
@@ -315,7 +535,7 @@ main h2 {
   margin: 45px 0 40px 0;
 }
 main ol {
-  font-weight: 300;
+  list-style-type: decimal;
 }
 main ol li {
   margin-left: 32px;
@@ -337,6 +557,13 @@ main ol:nth-child(2) > li:before {
   content: "2.";
   position: absolute;
   left: -30px;
+}
+
+@media screen and (max-width: 720px) {
+  main {
+    margin: 70px auto !important;
+    width: 90%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

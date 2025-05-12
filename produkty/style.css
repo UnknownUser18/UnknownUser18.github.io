@@ -1,5 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+@import "../assets/styles/inter.css";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap");
+:root {
+  --font-50: 50px;
+  --font-35: 35px;
+  --font-30: 30px;
+  --font-26: 26px;
+  --font-24: 24px;
+  --font-22: 22px;
+  --font-18: 18px;
+  --font-17: 17px;
+  --font-16: 16px;
+  --font-15: 15px;
+  --font-14: 14px;
+  --font-13: 13px;
+  --font-12: 12px;
+}
+
+@media screen and (max-width: 720px) {
+  :root {
+    --font-50: 30px;
+    --font-35: 30px;
+    --font-30: 28px;
+    --font-26: 24px;
+    --font-25: 22px;
+    --font-24: 20px;
+    --font-22: 20px;
+    --font-15: 14px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .show-image > div {
+    height: 50% !important;
+  }
+}
 nav {
   width: 100%;
   place-items: center;
@@ -46,7 +80,11 @@ nav ul {
   place-self: center end;
   width: 60%;
   justify-content: space-evenly;
-  list-style: none;
+}
+nav ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 nav svg {
   width: 30%;
@@ -117,7 +155,7 @@ footer h3 {
   font-weight: 600;
 }
 footer p {
-  font-size: 13px;
+  font-size: var(--font-13);
   line-height: 26px;
 }
 footer p:first-of-type {
@@ -133,11 +171,8 @@ footer p:last-of-type {
   grid-column: 10/span 2;
   grid-row: 7/span 1;
 }
-footer ul {
-  list-style: none;
-}
 footer ul li {
-  font-size: 15px;
+  font-size: var(--font-15);
 }
 footer ul li a {
   transition: 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
@@ -165,7 +200,7 @@ footer ul:nth-of-type(2) li:last-of-type {
   margin-bottom: 0;
 }
 footer h3 {
-  font-size: 22px;
+  font-size: var(--font-22);
 }
 footer h3:first-of-type {
   grid-column: 4/span 1;
@@ -197,6 +232,164 @@ footer hr:last-of-type {
   grid-row: 5/span 1;
 }
 
+.login {
+  z-index: 3;
+  position: fixed;
+  top: 70px;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 0 0 10px 10px;
+}
+.login label {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.login label b {
+  font-weight: 700;
+}
+.login label b span {
+  color: #e31019;
+}
+.login label input {
+  background-color: #fff;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.login a {
+  margin-left: 10px;
+  color: #e31019;
+}
+.login a:hover {
+  text-decoration: underline;
+}
+.login button {
+  margin: 10px 0;
+  width: 100% !important;
+  text-transform: none !important;
+}
+.login button[type=submit] {
+  transition: 300ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 300ms color cubic-bezier(0.53, 0.1, 0.58, 1);
+  background-color: #e31019;
+  color: #fff;
+  font-weight: 400;
+  padding: 12px 35px;
+  text-transform: lowercase;
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  font-size: var(--font-14);
+}
+.login button[type=submit]:hover {
+  background-color: #858585;
+  color: #fff;
+}
+.login button[type=button] {
+  transition: 300ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 300ms color cubic-bezier(0.53, 0.1, 0.58, 1);
+  background-color: #fff;
+  color: #000;
+  font-weight: 400;
+  padding: 12px 35px;
+  text-transform: lowercase;
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  font-size: var(--font-14);
+}
+.login button[type=button]:hover {
+  background-color: #e31019;
+  color: #fff;
+}
+
+@media screen and (max-width: 1280px) {
+  nav ul {
+    width: 100%;
+  }
+  footer {
+    padding: 5%;
+  }
+}
+@media screen and (max-width: 720px) {
+  nav {
+    padding: 10px 3%;
+    grid-template-columns: 0.4fr 0.6fr;
+  }
+  nav > :last-child {
+    grid-column: 3/span 1;
+  }
+  nav label {
+    display: none;
+  }
+  nav img {
+    width: 150px;
+  }
+  nav ul {
+    grid-column: 2/span 1;
+  }
+  nav li {
+    width: 18px;
+  }
+  footer {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: unset;
+  }
+  footer > * {
+    grid-column: 1/-1 !important;
+  }
+  footer img {
+    place-self: center;
+  }
+  footer h3 {
+    margin-top: 10px;
+  }
+  footer h3:first-of-type {
+    grid-row: 2/span 1;
+  }
+  footer h3:nth-of-type(2) {
+    place-self: start;
+    grid-row: 4/span 1;
+  }
+  footer h3:last-of-type {
+    grid-row: 6/span 1;
+  }
+  footer hr:first-of-type {
+    grid-row: 8/span 1;
+  }
+  footer hr:last-of-type {
+    grid-row: 10/span 1;
+  }
+  footer figure {
+    margin: 10px 0;
+    grid-row: 7/span 2;
+  }
+  footer ul {
+    margin-bottom: 10px;
+  }
+  footer ul:first-of-type {
+    grid-row: 3/span 1;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  footer ul:nth-of-type(2) {
+    place-self: start;
+  }
+  footer ul:nth-of-type(2) li {
+    margin: 0;
+  }
+  footer p:nth-last-of-type(2), footer p:last-of-type {
+    grid-row: 11/span 1;
+    grid-column: 1/span 1;
+  }
+  footer p:last-of-type {
+    grid-column: 2/span 1;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -266,23 +459,51 @@ button:not(input), input:not(input), select:not(input), textarea:not(input) {
   cursor: pointer;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
-}
-
 a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
 }
 
+ol, ul {
+  list-style: none;
+}
+
+@media screen and (max-width: 1280px) {
+  body main {
+    margin: 110px 50px 70px 50px;
+  }
+  body main > div:first-of-type {
+    transform: none;
+  }
+}
+@media screen and (max-width: 720px) {
+  body > ul {
+    top: calc(28px + 1rem);
+    width: 90%;
+  }
+  .search {
+    z-index: 3;
+    width: 70%;
+    position: fixed;
+    top: 45%;
+    left: 10%;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  .search svg {
+    color: #e31019;
+  }
+}
 main {
   margin: 110px 160px 70px 160px;
 }
 main > div:first-of-type {
   transform: translateX(-70px);
   color: #858585;
-  font-size: 12px;
+  font-size: var(--font-12);
   font-weight: 400;
 }
 main > div:first-of-type a:hover {
@@ -305,7 +526,7 @@ main > div:last-of-type {
   grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
 }
 main > div:last-of-type span {
-  font-size: 15px;
+  font-size: var(--font-15);
   line-height: 30px;
   user-select: none;
   transition: 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
@@ -314,8 +535,8 @@ main > div:last-of-type span:not(.dot) {
   cursor: pointer;
 }
 main > div:last-of-type span:first-of-type, main > div:last-of-type span:last-of-type {
-  font-size: 24px;
   font-family: "Inter", "Poppins", sans-serif;
+  font-size: var(--font-24);
 }
 main > div:last-of-type span:first-of-type {
   place-self: center start;
@@ -342,28 +563,25 @@ main > div:last-of-type {
   transform: translateX(12.5vw);
 }
 main h1, main h2 {
-  user-select: none;
-  text-transform: uppercase;
+  font-size: inherit;
+  font-weight: 300;
   letter-spacing: 0.2em;
+  text-transform: uppercase;
+  user-select: none;
 }
 main h1 {
   text-align: center;
-  font-size: 30px;
+  font-size: var(--font-30);
   margin-bottom: 45px;
 }
 main h2 {
-  margin-top: 15px;
-  font-size: 24px;
-  margin-bottom: 40px;
+  margin: 15px 0 40px 0;
+  font-size: var(--font-24);
 }
 main h2:not(:first-of-type) {
+  margin: 60px 0 10px 0;
   padding-bottom: 20px;
-  margin-top: 60px;
-  margin-bottom: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-main .sidebar ul {
-  list-style: none;
 }
 main .sidebar ul li {
   padding: 12px 0;
@@ -377,7 +595,7 @@ main .sidebar ul li.active {
 }
 main .sidebar ul a {
   transition: 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
-  font-size: 17px;
+  font-size: var(--font-17);
   letter-spacing: 0.2em;
 }
 main .sidebar ul a:hover {
@@ -387,16 +605,16 @@ main .sidebar ul a span {
   font-family: "Noto Sans JP", "Poppins", sans-serif;
 }
 main .sidebar label:not(.price) {
-  margin-left: 20px;
-  margin-bottom: 18px;
+  font-size: var(--font-16);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 20px 18px 0;
   transition: 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
   display: flex;
   user-select: none;
   align-items: center;
   cursor: pointer;
-  font-size: 16px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
 }
 main .sidebar label:not(.price):hover {
   color: #e31019;
@@ -443,17 +661,22 @@ main .sidebar .price span {
   margin: 0 20px 0 10px;
 }
 main .sidebar button {
+  transition: 300ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 300ms color cubic-bezier(0.53, 0.1, 0.58, 1);
+  background-color: #000;
+  color: #fff;
   font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;
   height: fit-content;
   width: fit-content;
-  font-size: 14px;
+  font-size: var(--font-14);
   width: 70%;
   margin: 30px auto 0 auto;
   display: block;
-  background-color: #000;
+}
+main .sidebar button:hover {
+  background-color: #e31019;
   color: #fff;
 }
 main .products > div:first-of-type {
@@ -482,7 +705,7 @@ main .products > div:nth-of-type(2) {
   grid-template-columns: 1fr 0.4fr;
 }
 main .products > div:nth-of-type(2) p {
-  font-size: 15px;
+  font-size: var(--font-15);
   line-height: 30px;
 }
 main .products > div:nth-of-type(2) label {
@@ -490,15 +713,21 @@ main .products > div:nth-of-type(2) label {
 }
 main .products > div:nth-of-type(2) label select {
   margin-left: 10px;
+  transition: 300ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 300ms color cubic-bezier(0.53, 0.1, 0.58, 1);
   background-color: #eaeaea;
+  color: inherit;
   font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;
   height: fit-content;
   width: fit-content;
-  font-size: 14px;
+  font-size: var(--font-14);
   padding: 12px 20px;
+}
+main .products > div:nth-of-type(2) label select:hover {
+  background-color: inherit;
+  color: inherit;
 }
 main .product-list {
   display: grid;
@@ -519,17 +748,18 @@ main .product-list article:hover {
   box-shadow: 10px 10px 40px -12px rgba(0, 0, 0, 0.4);
 }
 main .product-list article h3 {
-  text-transform: uppercase;
-  font-size: 15px;
-  line-height: 20px;
+  font-size: var(--font-15);
+  font-weight: 300;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 20px;
   text-align: center;
 }
 main .product-list article img {
   grid-row: 1;
 }
 main .product-list article p {
-  font-size: 15px;
+  font-size: var(--font-15);
   font-weight: 700;
 }
 main .product-list article span {
@@ -544,18 +774,26 @@ main .product-list article span {
 }
 main .product-list article a {
   transition: 200ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 200ms color cubic-bezier(0.53, 0.1, 0.58, 1);
+  transition: 300ms background-color cubic-bezier(0.53, 0.1, 0.58, 1), 300ms color cubic-bezier(0.53, 0.1, 0.58, 1);
   background-color: #eaeaea;
+  color: inherit;
   font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;
   height: fit-content;
   width: fit-content;
-  font-size: 14px;
+  font-size: var(--font-14);
 }
 main .product-list article a:hover {
   background-color: #e31019;
   color: #fff;
+}
+
+@media screen and (max-width: 1280px) {
+  main .sidebar .price {
+    width: 120%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

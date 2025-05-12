@@ -1,5 +1,23 @@
 @import 'assets/styles/global';
 @import 'assets/styles/inter.css';
+@mixin articles {
+  h3, img, a {
+    transform: none;
+  }
+  p, div {
+    opacity: 1;
+    &:not(div) {
+      font-size: 15px;
+    }
+  }
+  &::before {
+    opacity: 0;
+  }
+}
+@mixin background-image {
+  background-size: cover;
+  background-position: center;
+}
 nav {
   transition: transition($medium, background-color);
   background-color: transparent;
@@ -8,6 +26,7 @@ nav {
   }
 }
 header {
+  @include element-index;
   transition: transition($medium, opacity);
   position: relative;
   user-select: none;
@@ -15,10 +34,8 @@ header {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
-  background-size: cover;
-  background-position: center;
+  @include background-image;
   color: $color-1;
-  @include element-index;
   &:before {
     @include shadow(linear-gradient(180deg, $color-5 0%, rgba($color-5, 0.5) 15%));
     transition: transition($long, background-color);
@@ -49,20 +66,19 @@ header {
     grid-row: 4 / span 3;
   }
   a:not(.switch) {
-    transition: transition($medium, background-color), transition($medium, border-color);
+    @include button($background: transparent, $background-hover: $color-3);
+    transition: transition($medium, border-color), transition($medium, background-color);
     border: 1px solid $color-1;
     box-shadow: $light-box-shadow;
-    @include button;
     &:hover {
-      background-color: $color-3;
       border-color: transparent;
     }
   }
   span {
+    @include inter;
     transition: transition($medium, color);
     cursor: pointer;
-    font-size: 24px;
-    font-family: 'Inter', 'Poppins', sans-serif;
+    font-size: var(--font-24);
     grid-row: 5 / span 1;
     place-self: center;
     &:first-of-type {
@@ -76,9 +92,7 @@ header {
     }
   }
   h1 {
-    font-size: 50px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+    @include header($font-size: var(--font-50), $letter-spacing: 0.2em);
   }
   img {
     user-select: none;
@@ -86,14 +100,12 @@ header {
   }
 }
 main {
-  margin: 55px auto 0 auto;
+  margin: 55px auto 0 auto !important;
   width: 90%;
   section {
     margin-bottom: 90px;
     h2 {
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 35px;
+      @include header($font-size: var(--font-35), $letter-spacing: 0.2em);
       text-align: center;
       margin-bottom: 55px;
     }
@@ -105,6 +117,8 @@ main {
       gap: 20px;
     }
     article {
+      @include background-image;
+      @include element-index;
       color: $color-1;
       padding: 40px;
       display: grid;
@@ -112,10 +126,7 @@ main {
       position: relative;
       width: 100%;
       height: 600px;
-      background-position: center;
-      background-size: cover;
       overflow-y: hidden;
-      @include element-index;
       &::before {
         transition: transition($medium, opacity);
         content: '';
@@ -129,23 +140,12 @@ main {
         z-index: 1;
       }
       &:hover {
-        h3, img, button {
-          transform: none;
-        }
-        p, div {
-          opacity: 1;
-          &:not(div) {
-            font-size: 15px;
-          }
-        }
-        &::before {
-          opacity: 0;
-        }
+        @include articles;
       }
       div {
+        @include shadow(rgba($color-5, 0.6));
         transition: transition($medium, opacity);
         opacity: 0;
-        @include shadow(rgba($color-5, 0.6));
       }
       p {
         @include p;
@@ -159,16 +159,14 @@ main {
         transition: transition(1s, transform);
       }
       h3 {
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        font-size: 26px;
+        @include header($font-size: var(--font-26), $letter-spacing: 0.15em);
       }
-      button {
-        transition: transition($long, transform);
+      a {
+        @include button($background: $color-3, $background-hover: $color-7, $color-hover: $color-5);
+        transition: transition($long, transform), transition($medium, background-color), transition($medium, color);
         transform: translateY(100px);
         place-self: end start;
         background-color: $color-3;
-        @include button;
       }
     }
   }
@@ -185,8 +183,7 @@ main {
       margin-left: 40px;
     }
     h3 {
-      font-weight: 600;
-      font-size: 35px;
+      @include header($font-size: 35px, $font-weight: 600, $text-transform: none);
       grid-column: 6 / span 4;
       grid-row: 2 / span 1
     }
@@ -196,15 +193,59 @@ main {
       grid-row: 3 / span 2;
     }
     a {
+      @include button($background: $color-2, $background-hover: $color-3, $color-hover: $color-1);
       margin: 45px 0 0 36px;
       grid-column: 6 / span 2;
       grid-row: 5 / span 1;
-      transition: transition($short, background-color), transition($short, color);
-      @include button;
-      background-color: $color-2;
-      &:hover {
-        background-color: $color-3;
-        color: $color-1;
+    }
+  }
+}
+@media screen and (max-width: 1280px) {
+  main {
+    width: 100%;
+    #produkty > div {
+      width: 90%;
+      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+  }
+}
+@media screen and (max-width: 720px) {
+  header img {
+    width: 75%;
+    height: auto;
+  }
+  main {
+    @mixin flex {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #produkty > div {
+      @include flex;
+      article {
+        padding: 10px 15px;
+        h3, img, a {
+          transform: none;
+        }
+        h3, img {
+          margin-bottom: 7px;
+        }
+        p, div {
+          opacity: 1;
+          &:not(div) {
+            font-size: 15px;
+          }
+        }
+        &::before {
+          opacity: 0;
+        }
+      }
+    }
+    section:last-child article {
+      @include flex;
+      h3, p, a {
+        margin-left: 0;
       }
     }
   }

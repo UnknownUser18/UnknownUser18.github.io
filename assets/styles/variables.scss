@@ -1,3 +1,4 @@
+// Variables
 $color-1: #fff;
 $color-2: #eaeaea;
 $color-3: #e31019;
@@ -7,21 +8,74 @@ $color-6: #858585;
 $color-7: #828282;
 $color-8: #f3f3f3;
 $light-box-shadow: 10px 10px 40px -12px rgba(0,0,0,0.4);
-$cubic-bezier: cubic-bezier(.53,.1,.58,1);
+$base-border: 1px solid;
+$border: $base-border rgba($color-5, 0.15);
+$border-darker: $base-border rgba($color-5, 0.2);
+
+// Durations
 $short: 200ms;
 $medium: 300ms;
 $long: 500ms;
-@function transition($property, $duration) {
-  @return $property $duration $cubic-bezier;
+$longer: 750ms;
+
+// Font Sizes
+:root {
+  --font-50: 50px;
+  --font-35: 35px;
+  --font-30: 30px;
+  --font-26: 26px;
+  --font-24: 24px;
+  --font-22: 22px;
+  --font-18: 18px;
+  --font-17: 17px;
+  --font-16: 16px;
+  --font-15: 15px;
+  --font-14: 14px;
+  --font-13: 13px;
+  --font-12: 12px;
 }
-@mixin button {
+@media screen and (max-width: 720px) {
+  :root {
+    --font-50: 30px;
+    --font-35: 30px;
+    --font-30: 28px;
+    --font-26: 24px;
+    --font-25: 22px;
+    --font-24: 20px;
+    --font-22: 20px;
+    --font-15: 14px;
+  }
+}
+// Functions
+@function transition($property, $duration) {
+  @return $property $duration cubic-bezier(.53,.1,.58,1);
+}
+
+// Mixins
+@mixin inter {
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+@mixin header($font-size: inherit, $font-weight: 300, $letter-spacing: normal, $text-transform: uppercase) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  letter-spacing: $letter-spacing;
+  text-transform: $text-transform;
+}
+@mixin button($background, $color: inherit, $background-hover: inherit, $color-hover: inherit) {
+  transition: transition($medium, background-color), transition($medium, color);
+  background-color: $background;
+  color: $color;
   font-weight: 400;
   padding: 12px 35px;
   text-transform: lowercase;
   border-radius: 10px;
   height: fit-content;
   width: fit-content;
-  font-size: 14px;
+  font-size: var(--font-14);
+  &:hover {
+    background-color: $background-hover;
+    color: $color-hover;
+  }
 }
 @mixin shadow($background) {
   content: '';
@@ -33,9 +87,9 @@ $long: 500ms;
   height: 100%;
   background: $background;
 }
-@mixin p {
-  font-size: 15px;
-  line-height: 30px;
+@mixin p($font-size: var(--font-15), $line-height: 30px) {
+  font-size: $font-size;
+  line-height: $line-height;
 }
 @mixin element-index {
   * {
@@ -62,7 +116,7 @@ $long: 500ms;
       user-select: none;
       width: 60%;
       height: auto;
-      transition: transition(750ms, transform);
+      transition: transition($longer, transform);
       &:first-child {
         width: 12%;
         margin-right: 70px;
@@ -92,7 +146,7 @@ $long: 500ms;
   & > div:first-of-type {
     transform: translateX(-70px);
     color: $color-6;
-    font-size: 12px;
+    font-size: var(--font-12);
     font-weight: 400;
     a:hover {
       text-decoration: underline;
@@ -110,8 +164,8 @@ $long: 500ms;
     }
   }
 }
-@mixin main($top, $sides) {
-  margin: $top $sides 70px $sides;
+@mixin main($sides) {
+  margin: 110px $sides 70px $sides;
 }
 @mixin figure-date {
   figure {
@@ -120,9 +174,11 @@ $long: 500ms;
       position: absolute;
       top: 10px;
       left: 10px;
-      @include button;
-      background-color: $color-5;
-      color: $color-1;
+      @include button($color-5, $color-1, $color-5, $color-1);
+    }
+    img {
+      width: 100%;
+      height: auto;
     }
   }
 }
@@ -211,8 +267,8 @@ $long: 500ms;
       }
       transition: transition($short, color);
       &:first-of-type, &:last-of-type {
-        font-size: 24px;
-        font-family: 'Inter', 'Poppins', sans-serif;
+        @include inter;
+        font-size: var(--font-24);
       }
       &:first-of-type {
         place-self: center start;
@@ -243,17 +299,15 @@ $long: 500ms;
       box-shadow: $light-box-shadow;
     }
     h3 {
-      text-transform: uppercase;
-      font-size: 15px;
+      @include header($font-size: var(--font-15), $letter-spacing: 0.05em);
       line-height: 20px;
-      letter-spacing: 0.05em;
       text-align: center;
     }
     img {
       grid-row: 1;
     }
     p {
-      font-size: 15px;
+      font-size: var(--font-15);
       font-weight: 700;
     }
     span {
@@ -268,12 +322,14 @@ $long: 500ms;
     }
     a {
       transition: transition($short, background-color), transition($short, color);
-      background-color: $color-2;
-      @include button;
-      &:hover {
-        background-color: $color-3;
-        color: $color-1;
-      }
+      @include button($background: $color-2, $background-hover: $color-3, $color-hover: $color-1);
+    }
+  }
+}
+@media screen and (max-width: 1280px) {
+  .show-image {
+    & > div {
+      height: 50% !important;
     }
   }
 }

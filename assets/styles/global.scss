@@ -65,11 +65,40 @@ button, input, select, textarea {
     cursor: pointer;
   }
 }
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
-}
 a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+}
+ol, ul {
+  list-style: none;
+}
+
+@media screen and (max-width: 1280px) {
+  body main {
+    @include main(50px);
+    & > div:first-of-type {
+      transform: none;
+    }
+  }
+}
+@media screen and (max-width: 720px) {
+  body > ul {
+    top: calc(28px + 1rem);
+    width: 90%;
+  }
+  .search {
+    z-index: 3;
+    width: 70%;
+    position: fixed;
+    top: 45%;
+    left: 10%;
+    background-color: $color-5;
+    color: $color-1;
+    padding: 10px 20px;
+    border-radius: 10px;
+    svg {
+      color: $color-3;
+    }
+  }
 }

@@ -1,7 +1,9 @@
 @import "../assets/styles/global";
+@import "../assets/styles/inter.css";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+
 main {
-  @include main(110px, 160px);
+  @include main(160px);
   @include navigation;
   @include scroller;
   & > div:first-of-type {
@@ -16,34 +18,30 @@ main {
     transform: translateX(12.5vw);
   }
   h1, h2 {
+    @include header($letter-spacing: 0.2em);
     user-select: none;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
   }
   h1 {
     text-align: center;
-    font-size: 30px;
+    font-size: var(--font-30);
     margin-bottom: 45px;
   }
   h2 {
-    margin-top: 15px;
-    font-size: 24px;
-    margin-bottom: 40px;
+    margin: 15px 0 40px 0;
+    font-size: var(--font-24);
     &:not(:first-of-type) {
+      margin: 60px 0 10px 0;
       padding-bottom: 20px;
-      margin-top: 60px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid rgba($color-5, 0.2);
+      border-bottom: $border-darker;
     }
   }
   .sidebar {
     ul {
-      list-style: none;
       li {
         padding: 12px 0;
-        border-top: 1px solid rgba($color-5, 0.15);
+        border-top: $border;
         &:last-of-type {
-          border-bottom: 1px solid rgba($color-5, 0.15);
+          border-bottom: $border;
         }
         &.active {
           color: $color-3;
@@ -51,7 +49,7 @@ main {
       }
       a {
         transition: transition($short, color);
-        font-size: 17px;
+        font-size: var(--font-17);
         letter-spacing: 0.2em;
         &:hover {
           color: $color-3;
@@ -62,16 +60,13 @@ main {
       }
     }
     label:not(.price) {
-      margin-left: 20px;
-      margin-bottom: 18px;
+      @include header($font-size: var(--font-16), $letter-spacing: 0.2em);
+      margin: 0 20px 18px 0;
       transition: transition($short, color);
       display: flex;
       user-select: none;
       align-items: center;
       cursor: pointer;
-      font-size: 16px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
       &:hover {
         color: $color-3;
       }
@@ -85,7 +80,7 @@ main {
         overflow: hidden;
         transition: transition($short, background-position);
         background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIj48cGF0aCBkPSJtNDYxLjYgMTA5LjYtNTQuOS00My4zYy0xLjctMS40LTMuOC0yLjQtNi4yLTIuNC0yLjQgMC00LjYgMS02LjMgMi41TDE5NC41IDMyM3MtNzguNS03NS41LTgwLjctNzcuN2MtMi4yLTIuMi01LjEtNS45LTkuNS01LjlzLTYuNCAzLjEtOC43IDUuNGMtMS43IDEuOC0yOS43IDMxLjItNDMuNSA0NS44LS44LjktMS4zIDEuNC0yIDIuMS0xLjIgMS43LTIgMy42LTIgNS43IDAgMi4yLjggNCAyIDUuN2wyLjggMi42czEzOS4zIDEzMy44IDE0MS42IDEzNi4xYzIuMyAyLjMgNS4xIDUuMiA5LjIgNS4yIDQgMCA3LjMtNC4zIDkuMi02LjJsMjQ5LjEtMzIwYzEuMi0xLjcgMi0zLjYgMi01LjggMC0yLjUtMS00LjYtMi40LTYuNHoiIGZpbGw9IiNlMzEwMTkiIGNsYXNzPSJmaWxsLTAwMDAwMCI+PC9wYXRoPjwvc3ZnPg==");
-        border: 1px solid rgba($color-5, 0.2);
+        border: $border-darker;
         background-repeat: no-repeat;
         background-position: 0 -500%;
         background-size: 10px;
@@ -100,7 +95,7 @@ main {
       margin: 20px auto 0 auto;
       input {
         transition: transition($short, border-color);
-        border: 1px solid rgba($color-5, 0.2);
+        border: $border-darker;
         text-align: center;
         width: 100px;
         height: 50px;
@@ -118,12 +113,10 @@ main {
       }
     }
     button {
-      @include button;
+      @include button($color-5, $color-1, $color-3, $color-1);
       width: 70%;
       margin: 30px auto 0 auto;
       display: block;
-      background-color: $color-5;
-      color: $color-1;
     }
   }
   .products {
@@ -151,8 +144,7 @@ main {
         place-self: center end;
         select {
           margin-left: 10px;
-          background-color: $color-2;
-          @include button;
+          @include button($background: $color-2);
           padding: 12px 20px;
         }
       }
@@ -164,5 +156,12 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
     margin-top: 45px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  main {
+    .sidebar .price {
+      width: 120%;
+    }
   }
 }

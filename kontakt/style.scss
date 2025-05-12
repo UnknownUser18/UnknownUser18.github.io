@@ -1,50 +1,52 @@
 @import '../assets/styles/global';
+b {
+  font-weight: 700;
+}
+img, canvas {
+  user-select: none;
+  pointer-events: none;
+}
 main {
   @include navigation;
-  @include main(110px, 360px);
+  @include main(360px);
   & > div:nth-of-type(2) {
     margin: 65px 0 80px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    img {
-      user-select: none;
-      pointer-events: none;
-    }
     & > span {
       margin-left: 120px;
       width: 25%;
       display: grid;
       column-gap: 20px;
       grid-template-columns: 0.2fr 1fr;
-      font-size: 15px;
+      font-size: var(--font-15);
       img {
         grid-row: 1 / span 2;
         place-self: center;
-      }
-      b {
-        font-weight: 700;
       }
       span {
         grid-column: 2 / 2;
       }
     }
   }
+  a:hover {
+    text-decoration: underline;
+  }
   h1, h2 {
+    @include header($letter-spacing: 0.2em);
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
   }
   h1 {
-    font-size: 35px;
+    font-size: var(--font-35);
   }
   h2 {
-    font-size: 26px;
+    font-size: var(--font-26);
   }
   p {
+    @include p;
     margin-top: 30px;
     text-align: center;
-    @include p;
   }
   form {
     margin-top: 90px;
@@ -79,15 +81,12 @@ main {
           grid-template-columns: 1fr 0.2fr;
           place-items: center;
           margin-right: 10px;
-          border: 1px solid rgba($color-5, 0.15);
-          canvas {
-            user-select: none;
-            pointer-events: none;
-          }
+          border: $border;
           img {
+            pointer-events: all;
             cursor: pointer;
             padding: 10px;
-            border-left: 1px solid rgba($color-5, 0.15);
+            border-left: $border;
           }
         }
       }
@@ -111,7 +110,7 @@ main {
             min-width: 20px;
             width: 20px;
             height: 20px;
-            border: 1px solid rgba($color-5, 0.15);
+            border: $border;
             border-radius: 5px;
             display: flex;
             justify-content: center;
@@ -134,7 +133,6 @@ main {
         }
       }
       b {
-        font-weight: 700;
         margin-bottom: 10px;
       }
       input, textarea {
@@ -148,16 +146,9 @@ main {
       }
     }
     button {
-      transition: transition($short, background-color), transition($short, color);
-      @include button;
+      @include button($color-5, $color-1, $color-3, $color-1);
       grid-column: 1 / -1;
       margin: 0 auto;
-      background-color: $color-5;
-      color: $color-1;
-      &:hover {
-        color: $color-1;
-        background-color: $color-3;
-      }
     }
   }
 }

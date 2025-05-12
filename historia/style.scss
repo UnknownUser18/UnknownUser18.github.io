@@ -2,13 +2,14 @@
 main {
   @include figure;
   @include navigation;
-  @include main(120px, 140px);
+  @include main(40px);
+  & > div:first-of-type {
+    transform: none;
+  }
   h1 {
-    font-size: 35px;
+    @include header($font-size: var(--font-35), $letter-spacing: 0.2em);
     margin-bottom: 30px;
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
   }
   article {
     display: grid;
@@ -45,25 +46,24 @@ main {
       }
     }
     h3 {
+      @include header($font-size: var(--font-35), $font-weight: 600, $text-transform: none);
       grid-row: 2 / span 1;
       padding-top: 20px;
       place-self: center start;
-      font-weight: 600;
-      font-size: 35px;
     }
     p {
-      grid-row: 3 / span 2;
       @include p;
+      grid-row: 3 / span 2;
     }
     figure {
       grid-row: 1 / span 4;
     }
   }
   & > div:last-of-type {
+    @include gallery;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    row-gap: 16px;
-    @include gallery;
+    gap: 16px;
     img {
       z-index: -1;
       position: relative;
@@ -73,3 +73,10 @@ main {
   }
 }
 @include show-image;
+@media screen and (max-width: 1280px) {
+  main > div:last-of-type {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+}

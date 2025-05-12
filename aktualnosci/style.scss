@@ -2,15 +2,13 @@
 @import "../assets/styles/inter.css";
 main {
   @include navigation;
-  @include main(110px, 250px);
+  @include main(250px);
   @include figure-date;
   @include scroller;
   h1 {
+    @include header($font-size: var(--font-35), $letter-spacing: 0.2em);
     user-select: none;
     text-align: center;
-    text-transform: uppercase;
-    font-size: 35px;
-    letter-spacing: 0.2em;
     margin-bottom: 40px;
   }
   article {
@@ -18,27 +16,30 @@ main {
     place-items: center start;
     grid-template-rows: 0.5fr 1fr 0.3fr;
     h2 {
-      font-size: 22px;
-      font-weight: 600;
+      @include header($font-size: 22px, $font-weight: 600, $text-transform: none);
     }
     p {
-      place-self: start;
       @include p;
+      place-self: start;
     }
   }
   section {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
     column-gap: 155px;
     row-gap: 85px;
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
   a:not(main > div > a) {
-    @include button;
-    background-color: $color-2;
-    transition: transition($short, background-color), transition($short, color);
-    &:hover {
-      background-color: $color-3;
-      color: $color-1;
-    }
+    @include button($color-2, $color-5, $color-3, $color-1);
+  }
+}
+@media screen and (max-width: 720px) {
+  main section {
+    display: flex;
+    flex-direction: column;
   }
 }
