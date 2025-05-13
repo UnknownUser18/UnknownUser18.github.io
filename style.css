@@ -28,11 +28,6 @@
     --font-15: 14px;
   }
 }
-@media screen and (max-width: 1280px) {
-  .show-image > div {
-    height: 50% !important;
-  }
-}
 nav {
   width: 100%;
   place-items: center;
@@ -379,7 +374,10 @@ footer hr:last-of-type {
     place-self: start;
   }
   footer ul:nth-of-type(2) li {
-    margin: 0;
+    margin: 5px 0;
+  }
+  footer ul li {
+    margin: 5px 0;
   }
   footer p:nth-last-of-type(2), footer p:last-of-type {
     grid-row: 11/span 1;
@@ -480,6 +478,9 @@ ol, ul {
   body > ul {
     top: calc(28px + 1rem);
     width: 90%;
+  }
+  main {
+    margin-top: 70px !important;
   }
   .search {
     z-index: 3;

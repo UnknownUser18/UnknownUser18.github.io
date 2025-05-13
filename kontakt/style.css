@@ -27,11 +27,6 @@
     --font-15: 14px;
   }
 }
-@media screen and (max-width: 1280px) {
-  .show-image > div {
-    height: 50% !important;
-  }
-}
 nav {
   width: 100%;
   place-items: center;
@@ -378,7 +373,10 @@ footer hr:last-of-type {
     place-self: start;
   }
   footer ul:nth-of-type(2) li {
-    margin: 0;
+    margin: 5px 0;
+  }
+  footer ul li {
+    margin: 5px 0;
   }
   footer p:nth-last-of-type(2), footer p:last-of-type {
     grid-row: 11/span 1;
@@ -479,6 +477,9 @@ ol, ul {
   body > ul {
     top: calc(28px + 1rem);
     width: 90%;
+  }
+  main {
+    margin-top: 70px !important;
   }
   .search {
     z-index: 3;
@@ -677,6 +678,39 @@ main form button {
 main form button:hover {
   background-color: #e31019;
   color: #fff;
+}
+
+@media screen and (max-width: 1280px) {
+  main > div:nth-of-type(2) {
+    flex-direction: column;
+  }
+  main > div:nth-of-type(2) > img {
+    width: 100%;
+  }
+  main > div:nth-of-type(2) span {
+    margin: 10px 0;
+    width: 100%;
+  }
+  main > div:nth-of-type(2) span img {
+    width: 100%;
+    height: auto;
+  }
+  main form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  main form input, main form textarea {
+    width: 100%;
+  }
+  main form label[for=captcha] {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  main form label[for=captcha] input {
+    width: 100% !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -40,8 +40,7 @@ generateCaptcha();
 document.querySelector("button").addEventListener("click", (event) => {
   event.preventDefault();
   let captchaInput = document.querySelector('#captcha').value;
-  let gambling = Math.random() > 0.5;
-  if(captchaInput === capthaText && gambling) {
+  if(captchaInput === capthaText) {
     window.location.reload();
   } else {
     alert("Błędne dane");

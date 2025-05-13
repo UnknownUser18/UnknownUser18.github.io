@@ -6,6 +6,7 @@ const sources = [
   'noz1',
 ];
 let currentIndex = 0;
+let isBusy = false;
 let leftarrow = document.querySelector('figure span:first-of-type');
 let rightarrow = document.querySelector('figure span:last-of-type');
 let img = document.querySelector('figure:first-of-type img');
@@ -35,6 +36,8 @@ articles.forEach(article => {
 let lastspan = document.querySelector('section:last-of-type > span:last-of-type');
 let firstspan = document.querySelector('section:last-of-type > span:first-of-type');
 firstspan.addEventListener('click', () => {
+  if(isBusy) return;
+  isBusy = true;
   let products = document.querySelector('section:last-of-type > div');
   let lastProduct = products.children[products.children.length - 1];
 
@@ -45,6 +48,8 @@ firstspan.addEventListener('click', () => {
   });
 });
 lastspan.addEventListener('click', () => {
+  if(isBusy) return;
+  isBusy = true;
   let products = document.querySelector('section:last-of-type > div');
   let firstProduct = products.children[0];
   firstProduct.classList.add('slide-out');
@@ -70,5 +75,6 @@ function createProduct(container, start = false) {
     container.appendChild(newArticle);
     newArticle.classList.add('slide-in');
     setTimeout(() => { newArticle.classList.remove('slide-in'); }, 10);
+    isBusy = false;
   }
 }

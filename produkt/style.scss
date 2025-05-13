@@ -302,3 +302,23 @@ main {
     }
   }
 }
+@media screen and (max-width: 720px) {
+  main {
+    margin: 70px 10px !important;
+    section:first-of-type {
+      display: flex;
+      flex-direction: column;
+      & > div:first-of-type {
+        margin-bottom: 10px;
+      }
+      article {
+        grid-template-columns: 1fr 0.35fr;
+      }
+    }
+    section:last-of-type {
+      span:first-of-type, span:last-of-type {
+        top: 5%;
+      }
+    }
+  }
+}

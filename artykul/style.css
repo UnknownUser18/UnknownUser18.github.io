@@ -27,11 +27,6 @@
     --font-15: 14px;
   }
 }
-@media screen and (max-width: 1280px) {
-  .show-image > div {
-    height: 50% !important;
-  }
-}
 nav {
   width: 100%;
   place-items: center;
@@ -378,7 +373,10 @@ footer hr:last-of-type {
     place-self: start;
   }
   footer ul:nth-of-type(2) li {
-    margin: 0;
+    margin: 5px 0;
+  }
+  footer ul li {
+    margin: 5px 0;
   }
   footer p:nth-last-of-type(2), footer p:last-of-type {
     grid-row: 11/span 1;
@@ -479,6 +477,9 @@ ol, ul {
   body > ul {
     top: calc(28px + 1rem);
     width: 90%;
+  }
+  main {
+    margin-top: 70px !important;
   }
   .search {
     z-index: 3;
@@ -652,6 +653,16 @@ main div ~ p {
   box-shadow: 10px 10px 40px -12px rgba(0, 0, 0, 0.4);
   transform: translateY(200%);
 }
+@media screen and (max-width: 1280px) {
+  .show-image > div {
+    height: 50%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .show-image > div {
+    width: 90%;
+  }
+}
 .show-image > div.done {
   transform: none;
 }
@@ -684,6 +695,20 @@ main div ~ p {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
+  }
+}
+@media screen and (max-width: 720px) {
+  main > div:last-of-type {
+    display: flex;
+    flex-direction: column;
+  }
+  main > div:last-of-type div {
+    width: 100%;
+    height: auto;
+  }
+  main > div:last-of-type div img {
+    width: 100%;
+    height: auto;
   }
 }
 

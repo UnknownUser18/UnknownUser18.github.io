@@ -219,6 +219,12 @@ $longer: 750ms;
       position: relative;
       background-color: $color-1;
       width: 35%;
+      @media screen and (max-width: 1280px) {
+        height: 50%;
+      }
+      @media screen and (max-width: 720px) {
+        width: 90%;
+      }
       height: 75%;
       border-radius: 25px;
       box-shadow: $light-box-shadow;
@@ -256,6 +262,9 @@ $longer: 750ms;
   & > div:last-of-type {
     margin: 70px auto 0 auto;
     width: 40%;
+    @media screen and (max-width: 720px) {
+      width: 100%;
+    }
     display: grid;
     place-items: center;
     grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
@@ -269,6 +278,9 @@ $longer: 750ms;
       &:first-of-type, &:last-of-type {
         @include inter;
         font-size: var(--font-24);
+        @media screen and (max-width: 720px) {
+          font-size: var(--font-26);
+        }
       }
       &:first-of-type {
         place-self: center start;
@@ -326,10 +338,4 @@ $longer: 750ms;
     }
   }
 }
-@media screen and (max-width: 1280px) {
-  .show-image {
-    & > div {
-      height: 50% !important;
-    }
-  }
-}
+

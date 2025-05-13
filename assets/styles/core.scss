@@ -312,8 +312,11 @@ footer {
       &:nth-of-type(2) {
         place-self: start;
         li {
-          margin: 0;
+          margin: 5px 0;
         }
+      }
+      li {
+        margin: 5px 0;
       }
     }
     p {

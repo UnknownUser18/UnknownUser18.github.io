@@ -41,5 +41,20 @@ main {
   main section {
     display: flex;
     flex-direction: column;
+    figure {
+      padding: 5px 0;
+      &:has(+ article) {
+        border-top: $border;
+      }
+      & + article {
+        border-bottom: $border;
+      }
+    }
+    article {
+      padding: 5px 0;
+      a {
+        margin: 0 auto;
+      }
+    }
   }
 }

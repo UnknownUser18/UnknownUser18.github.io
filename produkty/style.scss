@@ -17,6 +17,11 @@ main {
   & > div:last-of-type {
     transform: translateX(12.5vw);
   }
+  & > button {
+    @include button($color-5, $color-1, $color-3, $color-1);
+    margin: 10px auto;
+    display: none;
+  }
   h1, h2 {
     @include header($letter-spacing: 0.2em);
     user-select: none;
@@ -120,6 +125,7 @@ main {
     }
   }
   .products {
+    transition: transition($long, margin-left), transition($long, height);
     & > div:first-of-type {
       position: relative;
       height: 300px;
@@ -162,6 +168,44 @@ main {
   main {
     .sidebar .price {
       width: 120%;
+    }
+  }
+}
+@media screen and (max-width: 720px) {
+  main {
+    &.sidebar-open {
+      .sidebar {
+        grid-column: 1 / -1;
+        width: 100%;
+        font-size: var(--font-16);
+        overflow: auto;
+      }
+      .products {
+        height: 0;
+        margin-left: 100%;
+        overflow: hidden;
+      }
+    }
+    & > button {
+      display: block;
+    }
+    & > div:nth-of-type(2) {
+      gap: 0;
+    }
+    .sidebar {
+      width: 0;
+      font-size: 0;
+      overflow: hidden;
+    }
+    .products {
+      width: 90%;
+      & > div:first-of-type {
+        height: 2%;
+      }
+      & > div:nth-of-type(2) {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
 }
