@@ -83,8 +83,11 @@ ol, ul {
   }
 }
 @media screen and (max-width: 720px) {
+  figure {
+    overflow: hidden;
+  }
   body > ul {
-    top: calc(28px + 1rem);
+    top: calc(26px + 1rem);
     width: 90%;
   }
   main {

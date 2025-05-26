@@ -474,8 +474,11 @@ ol, ul {
   }
 }
 @media screen and (max-width: 720px) {
+  figure {
+    overflow: hidden;
+  }
   body > ul {
-    top: calc(28px + 1rem);
+    top: calc(26px + 1rem);
     width: 90%;
   }
   main {
@@ -728,6 +731,10 @@ main > div:last-of-type img {
   }
 }
 @media screen and (max-width: 720px) {
+  figure img:nth-of-type(2) {
+    transform: translateX(-25%) !important;
+    translate: 5% 0 !important;
+  }
   main {
     margin: 110px 20px 70px 20px;
   }

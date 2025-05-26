@@ -81,6 +81,12 @@ main {
   }
 }
 @media screen and (max-width: 720px) {
+  figure {
+    img:nth-of-type(2) {
+      transform: translateX(-25%) !important;
+      translate: 5% 0 !important;
+    }
+  }
   main {
     @include main(20px);
     article {
