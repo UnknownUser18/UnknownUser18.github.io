@@ -1,0 +1,38 @@
+:root {
+  --primary: #293c65;
+  --secondary: #4b5b8b;
+  --accent: #7a8dbd;
+  --border: #c1d3f0;
+  --background: #f3f6fc;
+  --text: #212121;
+  --text-secondary: #6c757d;
+  --font-14: 14px;
+  --font-16: 16px;
+  --font-18: 18px;
+  --font-20: 20px;
+  --font-24: 24px;
+  --font-32: 32px;
+  --font-40: 40px;
+}
+$golden-ratio: 1.618;
+
+
+@mixin font-family($family: 'Inter') {
+  font-family: $family, ui-sans-serif, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @include font-family;
+  font-size: var(--font-16);
+  color: var(--text);
+  background-color: var(--background);
+  line-height: $golden-ratio;
+}
