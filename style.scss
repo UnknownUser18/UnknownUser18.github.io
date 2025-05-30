@@ -1,11 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap');
 :root {
-  --primary: #293c65;
-  --secondary: #4b5b8b;
-  --accent: #7a8dbd;
-  --border: #c1d3f0;
-  --background: #f3f6fc;
-  --text: #212121;
-  --text-secondary: #6c757d;
+  --crust: #232634;
+  --mantle: #292c3c;
+  --base: #303446;
+  --surface-0: #414559;
+  --surface-1: #51576d;
+  --surface-2: #626880;
+  --overlay-0: #737994;
+  --overlay-1: #838ba7;
+  --overlay-2: #949cbb;
+  --subtext-0: #a5adce;
+  --subtext-1: #b5bfe2;
+  --text: #c6d0f5;
+  --lavender: #babbf1;
+  --blue: #8caaee;
+  --saphire: #85c1dc;
+  --sky: #99d1db;
+  --teal: #81c8be;
+  --green: #a6d189;
+  --yellow: #e5c890;
+  --peach: #ef9f76;
+  --maroon: #ea999c;
+  --red: #e78284;
+  --mauve: #ca9ee6;
+  --pink: #f4b8e4;
+  --flamingo: #eebebe;
+  --rosewater: #f2d5cf;
   --font-14: 14px;
   --font-16: 16px;
   --font-18: 18px;
@@ -13,14 +33,14 @@
   --font-24: 24px;
   --font-32: 32px;
   --font-40: 40px;
+  --font-92: 92px;
 }
 $golden-ratio: 1.618;
-
-
-@mixin font-family($family: 'Inter') {
-  font-family: $family, ui-sans-serif, sans-serif;
-}
-
+$inter: 'Inter', ui-sans-serif, sans-serif;
+$jetbrains-mono: 'JetBrains Mono', ui-monospace, monospace;
+$border-10: 10px;
+$border-20: 20px;
+$border-30: 30px;
 * {
   margin: 0;
   padding: 0;
@@ -30,9 +50,36 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  @include font-family;
+  font-family: $inter;
   font-size: var(--font-16);
   color: var(--text);
-  background-color: var(--background);
+  background-color: var(--base);
   line-height: $golden-ratio;
+}
+header {
+  background-image: url("https://picsum.photos/1920/720");
+  height: 720px;
+  display: flex;
+  align-items: center;
+  border-radius: $border-10;
+  h1 {
+    margin-left: 10%;
+    font-size: var(--font-92);
+    color: transparent;
+    background: linear-gradient(90deg, var(--text), var(--blue), var(--lavender), var(--maroon), var(--pink));
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    animation: changeColor 5s infinite alternate;
+  }
+}
+@keyframes changeColor {
+  0% {
+    background-position: 0 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
