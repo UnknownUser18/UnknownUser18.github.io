@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+/* CSS Variables */
 :root {
   --crust: #232634;
   --mantle: #292c3c;
@@ -35,51 +37,277 @@
   --font-40: 40px;
   --font-92: 92px;
 }
+
+/* Font Faces */
+
+@font-face {
+  font-family: 'Neue Regarde';
+  src: url("assets/fonts/Neue-Regrade-Variable.ttf") format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Regarde Italic';
+  src: url("assets/fonts/Neue-Regrade-Variable.ttf") format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url("assets/fonts/GeneralSans-Variable.woff2") format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SCSS Variables */
+$quad-cubic-bezier: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$short: 0.2s;
+$medium: 0.3s;
+$long: 0.5s;
+$xlong: 0.75s;
 $golden-ratio: 1.618;
-$inter: 'Inter', ui-sans-serif, sans-serif;
+$sans-serif: ui-sans-serif, sans-serif;
+$neue-regarde: 'Neue Regarde', $sans-serif;
+$neue-regarde-italic: 'Neue Regarde Italic', $sans-serif;
+$general-sans: 'General Sans', $sans-serif;
+$inter: 'Inter', $sans-serif;
 $jetbrains-mono: 'JetBrains Mono', ui-monospace, monospace;
 $border-10: 10px;
 $border-20: 20px;
 $border-30: 30px;
+
+/* Functions */
+@function transition($property, $duration: $short, $timing: $quad-cubic-bezier) {
+  @return #{$property} #{$duration} #{$timing};
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
-  font-family: $inter;
+  font-family: $general-sans;
   font-size: var(--font-16);
   color: var(--text);
-  background-color: var(--base);
+  background-color: var(--crust);
   line-height: $golden-ratio;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $neue-regarde;
+}
+
+a {
+  color: inherit;
+}
+
+strong, b {
+  font-family: $inter;
+}
+
 header {
   background-image: url("https://picsum.photos/1920/720");
   height: 720px;
   display: flex;
   align-items: center;
-  border-radius: $border-10;
-  h1 {
-    margin-left: 10%;
-    font-size: var(--font-92);
-    color: transparent;
-    background: linear-gradient(90deg, var(--text), var(--blue), var(--lavender), var(--maroon), var(--pink));
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-    animation: changeColor 5s infinite alternate;
+}
+
+h1 {
+  margin-left: 10%;
+  font-size: var(--font-92);
+  color: transparent;
+  background: linear-gradient(to top right, var(--text), var(--blue), var(--maroon), var(--pink));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: 0.05em;
+  animation: changeColor 5s infinite alternate;
+}
+
+h2 {
+  font-size: var(--font-40);
+
+  a {
+    transition: transition(color);
+
+    &:first-of-type {
+      font-family: $jetbrains-mono;
+      color: var(--mauve);
+
+      &:hover {
+        color: var(--lavender);
+      }
+    }
   }
 }
+
+h3 {
+  font-size: var(--font-24);
+}
+
+section {
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: $border-30;
+
+  &:first-of-type {
+    & > div {
+      position: relative;
+      background-color: var(--mantle);
+      padding: 10px;
+      border-radius: 10px;
+
+      .scrollable {
+        margin-left: 20px;
+        width: calc(100% - 20px);
+      }
+    }
+
+    span {
+      font-family: $neue-regarde;
+      font-weight: 700;
+      font-size: var(--font-40);
+      color: var(--mauve);
+    }
+
+    article {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(2, 0.1fr) 1fr;
+      row-gap: 10px;
+      column-gap: 20px;
+
+      & > *:not(figure) {
+        grid-column: 1 / 1;
+      }
+
+      h3 {
+        font-size: var(--font-32);
+        margin-bottom: 10px;
+      }
+
+      strong, b {
+        color: var(--text);
+      }
+
+      p, li {
+        color: var(--subtext-0);
+        font-size: var(--font-18);
+      }
+
+      li {
+        margin-left: 16px;
+
+        &::marker {
+          color: var(--mauve);
+        }
+      }
+
+      figure {
+        position: relative;
+        overflow: hidden;
+        grid-column: 2 / 3;
+        grid-row: 1 / span 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        figcaption {
+          transition: transition(opacity, $xlong);
+          opacity: 0;
+        }
+        &.shown {
+          img:first-of-type {
+            opacity: 1;
+          }
+          img:last-of-type {
+            transform: rotate(45deg) translateY(0) translateX(50px);
+            opacity: 1;
+          }
+          figcaption {
+            opacity: 1;
+          }
+        }
+      }
+      img {
+        border-radius: $border-30;
+        width: 100%;
+        height: auto;
+        &:first-of-type {
+          transition: transition(opacity, $medium);
+          opacity: 0;
+        }
+        &:last-of-type {
+          transition: transition(transform, $xlong), transition(opacity, $xlong);
+          opacity: 0;
+          transform: translateY(200px) rotate(0deg) translateX(0);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 120px;
+          height: 120px;
+        }
+      }
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scrollable {
+  margin-top: 20px;
+  width: 100%;
+  height: 60vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--mauve) var(--surface-2);
+}
+
+.scroller-track {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 6px;
+  height: calc(100% - 20px);
+  background: var(--surface-2);
+  border-radius: 3px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.scroller-thumb {
+  display: block;
+  width: 100%;
+  background: var(--mauve);
+  border-radius: 3px;
+  transition: transition(height, $xlong);
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 5%;
+}
+
 @keyframes changeColor {
-  0% {
+  from {
     background-position: 0 50%;
   }
-  100% {
+  to {
     background-position: 100% 50%;
   }
 }
