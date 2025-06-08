@@ -1,0 +1,332 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+/* CSS Variables */
+:root {
+  --crust: #232634;
+  --mantle: #292c3c;
+  --base: #303446;
+  --surface-0: #414559;
+  --surface-1: #51576d;
+  --surface-2: #626880;
+  --overlay-0: #737994;
+  --overlay-1: #838ba7;
+  --overlay-2: #949cbb;
+  --subtext-0: #a5adce;
+  --subtext-1: #b5bfe2;
+  --text: #c6d0f5;
+  --lavender: #babbf1;
+  --blue: #8caaee;
+  --saphire: #85c1dc;
+  --sky: #99d1db;
+  --teal: #81c8be;
+  --green: #a6d189;
+  --yellow: #e5c890;
+  --peach: #ef9f76;
+  --maroon: #ea999c;
+  --red: #e78284;
+  --mauve: #ca9ee6;
+  --pink: #f4b8e4;
+  --flamingo: #eebebe;
+  --rosewater: #f2d5cf;
+  --font-14: 14px;
+  --font-16: 16px;
+  --font-18: 18px;
+  --font-20: 20px;
+  --font-24: 24px;
+  --font-32: 32px;
+  --font-40: 40px;
+  --font-92: 92px;
+}
+
+/* Font Faces */
+@font-face {
+  font-family: "Neue Regarde";
+  src: url("assets/fonts/Neue-Regrade-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neue Regarde Italic";
+  src: url("assets/fonts/Neue-Regrade-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+/* SCSS Variables */
+/* Functions */
+/* Mixins */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "General Sans", ui-sans-serif, sans-serif;
+  font-size: var(--font-16);
+  color: var(--text);
+  background-color: var(--crust);
+  line-height: 1.618;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Neue Regarde", ui-sans-serif, sans-serif;
+}
+
+i.fa-solid {
+  font-family: "Font Awesome 6 Free", ui-sans-serif, sans-serif;
+  font-weight: 900;
+}
+
+a {
+  transition: color 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  color: inherit;
+}
+
+ul {
+  line-height: 2;
+}
+
+strong, b {
+  font-family: "Inter", ui-sans-serif, sans-serif;
+}
+
+header {
+  background-image: url("assets/pics/baner.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 1080px;
+  display: flex;
+  align-items: flex-end;
+}
+
+h1 {
+  background: linear-gradient(to top right, var(--text), var(--blue), var(--maroon), var(--pink));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: changeColor 5s infinite alternate;
+  margin-left: 10%;
+  margin-bottom: 15%;
+  font-size: var(--font-92);
+  letter-spacing: 0.05em;
+}
+h1 span {
+  display: inline-block;
+  width: 5px;
+  height: 1em;
+  background: var(--text);
+  margin-left: 2px;
+  animation: blink 1s steps(1) infinite;
+  vertical-align: middle;
+}
+
+h2 {
+  font-size: var(--font-40);
+}
+h2 a {
+  transition: color 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+h2 a:first-of-type {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  color: var(--mauve);
+}
+h2 a:first-of-type:hover {
+  color: var(--lavender);
+}
+
+section {
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 30px;
+}
+section:first-of-type > div {
+  position: relative;
+  background-color: var(--mantle);
+  padding: 10px;
+  border-radius: 10px;
+}
+section:first-of-type > div .scrollable {
+  display: flex;
+  flex-direction: column;
+  gap: 250px;
+  margin-left: 20px;
+  padding: 25px;
+  width: calc(100% - 20px);
+}
+section:first-of-type a {
+  color: var(--subtext-1);
+  font-weight: 500;
+  text-decoration: none;
+}
+section:first-of-type a:hover {
+  color: var(--mauve);
+}
+section:first-of-type h2 {
+  font-family: "Neue Regarde", ui-sans-serif, sans-serif;
+  font-weight: 700;
+  font-size: var(--font-40);
+  color: var(--mauve);
+  margin-bottom: 5%;
+  margin-top: 10%;
+}
+section:first-of-type article {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 0.1fr) 1fr;
+  row-gap: 10px;
+  column-gap: 20px;
+  height: 100%;
+}
+section:first-of-type article:nth-of-type(2) figure {
+  justify-content: end;
+}
+section:first-of-type article:nth-of-type(2) figure img:last-of-type {
+  position: static;
+  transform: none !important;
+  width: auto;
+  height: auto;
+}
+section:first-of-type article.visible h3 {
+  background: linear-gradient(to top right, var(--text), var(--lavender), var(--blue), var(--sky));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: changeColor 5s infinite alternate;
+}
+section:first-of-type > *:not(figure) {
+  grid-column: 1/1;
+}
+section:first-of-type h3 {
+  font-size: var(--font-32);
+  margin-bottom: 10px;
+}
+section:first-of-type strong, section:first-of-type b {
+  color: var(--text);
+}
+section:first-of-type p, section:first-of-type li {
+  color: var(--subtext-0);
+  font-size: var(--font-18);
+}
+section:first-of-type li {
+  margin-left: 16px;
+}
+section:first-of-type li::marker {
+  color: var(--mauve);
+}
+section:first-of-type figure {
+  position: relative;
+  overflow: hidden;
+  grid-column: 2/3;
+  grid-row: 1/span 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+section:first-of-type figure figcaption {
+  transition: opacity 0.75s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  opacity: 0;
+}
+section:first-of-type figure.shown img:first-of-type {
+  opacity: 1;
+}
+section:first-of-type figure.shown img:last-of-type {
+  transform: rotate(-20deg) translateY(50px) translateX(-10px);
+  opacity: 1;
+}
+section:first-of-type figure.shown figcaption {
+  opacity: 1;
+}
+section:first-of-type img {
+  border-radius: 30px;
+  width: 100%;
+  height: auto;
+}
+section:first-of-type img:first-of-type {
+  transition: opacity 0.75s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  opacity: 0;
+}
+section:first-of-type img:last-of-type {
+  transition: transform 0.75s cubic-bezier(0.455, 0.03, 0.515, 0.955), opacity 0.75s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  opacity: 0;
+  transform: translateY(200px) rotate(0deg) translateX(0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scrollable {
+  margin-top: 20px;
+  width: 100%;
+  height: 60vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.scroller-track {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 6px;
+  height: calc(100% - 20px);
+  background: var(--surface-2);
+  border-radius: 3px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.scroller-thumb {
+  display: block;
+  width: 100%;
+  background: var(--mauve);
+  border-radius: 3px;
+  transition: height 0.75s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 5%;
+}
+
+@keyframes changeColor {
+  from {
+    background-position: 0 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -5,66 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/pics/duck_yellow.png" type="image/png">
   <title>Kaczuszki</title>
+  <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/fonts/fontawesome/css/solid.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <img src="https://picsum.photos/300/100" alt="Logo Kaczuszek">
-  <header>
-    <h1>Kaczuszki</h1>
-  </header>
-  <main>
-    <h2>Kaczuszki dla <a href="#dla-programistow">{programistów}</a>.</h2>
+<header>
+  <h1>Kaczuszki</h1>
+</header>
+<main>
+  <h2>Kaczuszki dla <a href="#debugging"><i class="fa-solid fa-bug-slash"></i>debuggowania</a>.</h2>
 
-    <section id="dla-programistow">
-      <span>Dla {programistów}</span>
-      <h3>Rubber Duck Debugging</h3>
-      <p>Technika <strong>rubber duck debugging</strong> jest prostym, ale skutecznym narzędziem wspomagającym proces programowania.</p>
-      <div>
+  <section id="debugging">
+    <h2>Dla <i class="fa-solid fa-bug-slash"></i> debuggowania - Rubber Duck Debugging</h2>
+    <div>
         <span class="scroller-track">
           <span class="scroller-thumb"></span>
         </span>
-        <div class="scrollable">
-          <article>
-            <h3>Dlaczego to działa?</h3>
-            <p><strong>Rubber duck debugging</strong> opiera się na kilku mechanizmach psychologicznych:</p>
-            <ul>
-              <li><b>Efekt nauczania:</b> Wyjaśnianie materiału innym (nawet kaczuszce) pomaga lepiej go zrozumieć i zidentyfikować luki w wiedzy.</li>
-              <li><b>Zmiana perspektywy:</b> Opisywanie kodu zmusza do przemyślenia założeń i może prowadzić do nowych spostrzeżeń.</li>
-              <li><b>Redukcja obciążenia poznawczego:</b> Werbalizacja problemu odciąża pamięć roboczą, ułatwiając znalezienie błędów.</li>
-            </ul>
-            <figure>
-              <img src="assets/pics/code.webp" alt="Kodzik">
-              <img src="https://picsum.photos/300/200" alt="Kaczuszka">
-              <figcaption>Przykład kodu do debugowania z kaczuszką</figcaption>
-            </figure>
-          </article>
-          <article>
-            <h3>Co mówią badania?</h3>
-            <p>Badania potwierdzają skuteczność tej techniki:</p>
-            <ul>
-              <li>Programiści stosujący rubber duck debugging naprawiali o <b>56% więcej błędów</b> niż grupy kontrolne.</li>
-              <li>Mówienie na głos podczas programowania zwiększało szybkość wykonywania zadań o <b>15–25%</b>.</li>
-            </ul>
-          </article>
-          <article>
-            <h3>Kaczuszka czy coś więcej?</h3>
-            <p>Ciekawostką jest badanie porównujące efektywność tłumaczenia kodu gumowej kaczuszce vs. żywej kaczce:</p>
-            <ul>
-              <li>Grupa z żywymi kaczkami wykrywała <b>15% więcej błędów</b> i rozwiązywała je <b>10% szybciej</b> niż grupa z gumowymi kaczuszkami.</li>
-              <li>Obecność żywej kaczki zapewniała większe wsparcie emocjonalne i redukcję stresu.</li>
-            </ul>
-          </article>
-          <article>
-            <h3>A co z robotami?</h3>
-            <p>Badanie nad wykorzystaniem robotów jako „słuchaczy” w debuggingu wykazało, że:</p>
-            <ul>
-              <li>Obecność robota nie poprawiała wyników w porównaniu z gumową kaczuszką.</li>
-            </ul>
-          </article>
-        </div>
+      <div class="scrollable">
+        <article>
+          <h3>Dlaczego to działa?</h3>
+          <p><strong>Rubber duck debugging</strong> opiera się na kilku mechanizmach psychologicznych:</p>
+          <ul>
+            <li><b>Efekt nauczania:</b> Wyjaśnianie materiału innym (nawet kaczuszce) pomaga lepiej go zrozumieć i zidentyfikować luki w wiedzy.</li>
+            <li><b>Zmiana perspektywy:</b> Opisywanie kodu zmusza do przemyślenia założeń i może prowadzić do nowych spostrzeżeń.</li>
+            <li><b>Redukcja obciążenia poznawczego:</b> Werbalizacja problemu odciąża pamięć roboczą, ułatwiając znalezienie błędów.</li>
+          </ul>
+          <figure>
+            <img src="assets/pics/code.webp" alt="Kodzik">
+            <img src="assets/pics/duck_yellow.png" alt="Kaczuszka">
+            <figcaption>Przykład kodu do debugowania z kaczuszką</figcaption>
+          </figure>
+        </article>
+        <article>
+          <h3>Skąd się wzięła kaczuszka u programistów?</h3>
+          <p>Pojęcie <b>rubber duck debugging</b> zostało spopularyzowane w książce <i><a href="https://en.wikipedia.org/wiki/The_Pragmatic_Programmer" title="'The Pragmatic Programmer' - Wikipedia" target="_blank">"The Pragmatic Programmer"</a></i> (1999) Andrew Hunta i Davida Thomasa.</p>
+          <ul>
+            <li>W anegdocie programista nosił gumową kaczuszkę i tłumaczył jej każdy fragment swojego kodu.</li>
+            <li>Celem było zmuszenie siebie do <b>jasnego, precyzyjnego myślenia o kodzie.</b></li>
+          </ul>
+          <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/en/8/8f/The_pragmatic_programmer.jpg" alt="Okładka ksiązki 'The Pragmatic Programmer'" width="200" height="300">
+            <figcaption>Okładka książki "The Pragmatic Programmer"</figcaption>
+          </figure>
+        </article>
+        <article class="with-chart">
+          <h3>Dlaczego kaczuszka jest skuteczna?</h3>
+          <ul>
+            <li>Efekt "na głos" — werbalizacja myśli pomaga lepiej je uporządkować.</li>
+            <li>Zmiana trybu poznawczego — tłumaczenie komuś (nawet kaczce) aktywuje inne obszary mózgu niż pasywna analiza.</li>
+            <li>Odwlekanie pomocy — zanim poprosisz kolegę o pomoc, spróbuj rozwiązać problem sam — przy okazji często go rozwiążesz.</li>
+            <li>W badaniu <a href="https://survey.stackoverflow.co/2023/" title="Stack Overflow Developer Survey 2023" target="_blank">Stack Overflow Developer Survey 2023</a> <b>~12% programistów zadeklarowało</b>, że stosuje rubber duck debugging regularnie.</li>
+            <li>W eksperymencie na Uniwersytecie Cambridge:
+              <ul>
+                <li>Programiści stosujący rubber duck debugging znajdowali o <b>~50% więcej błędów</b> w testach jednostkowych w porównaniu do grupy kontrolnej.</li>
+                <li>Czas rozwiązania problemów spadał średnio o <b>25–30%</b>.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <figure>
+            <canvas id="wykres"></canvas>
+            <figcaption>Wykres ilustrujący skuteczność rubber duck debugging</figcaption>
+          </figure>
+        </article>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 </body>
 <script src="script.js"></script>
 </html>
