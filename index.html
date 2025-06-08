@@ -5,20 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/pics/duck_yellow.png" type="image/png">
-  <title>Kaczuszki</title>
-  <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome.min.css">
   <link rel="stylesheet" href="assets/fonts/fontawesome/css/solid.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="assets/pics/duck_yellow.png" type="image/png">
   <link rel="preload" href="assets/pics/baner.gif" as="image" type="image/gif">
-  <link rel="preload" href="assets/fonts/fontawesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <title>Kaczuszki</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+<nav>
+  <ul>
+    <li></li>
+    <li><a href="#debugging"><i class="fa-solid fa-bug-slash"></i>Debugging</a></li>
+    <li><a href="#writing-code"><i class="fa-solid fa-code"></i>Pisanie kodu</a></li>
+  </ul>
+</nav>
 <header>
   <h1>Kaczuszki</h1>
 </header>
 <main>
-  <h2>Kaczuszki dla <a href="#debugging"><i class="fa-solid fa-bug-slash"></i>debuggowania</a>.</h2>
+  <h2>Kaczuszki dla <a href="#debugging"><i class="fa-solid fa-bug-slash"></i>debuggowania</a>, <a href="#writing-code"><i class="fa-solid fa-code"></i>pisania kodu</a>.</h2>
 
   <section id="debugging">
     <h2>Dla <i class="fa-solid fa-bug-slash"></i> debuggowania - Rubber Duck Debugging</h2>
@@ -68,12 +77,15 @@
             </li>
           </ul>
           <figure>
-            <canvas id="wykres"></canvas>
+            <canvas id="wykres" width="600" height="300"></canvas>
             <figcaption>Wykres ilustrujący skuteczność rubber duck debugging</figcaption>
           </figure>
         </article>
       </div>
     </div>
+  </section>
+  <section id="writing-code">
+    <h2>Dla <i class="fa-solid fa-code"></i> pisania kodu</h2>
   </section>
 </main>
 </body>

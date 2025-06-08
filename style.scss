@@ -1,100 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-/* CSS Variables */
-:root {
-  --crust: #232634;
-  --mantle: #292c3c;
-  --base: #303446;
-  --surface-0: #414559;
-  --surface-1: #51576d;
-  --surface-2: #626880;
-  --overlay-0: #737994;
-  --overlay-1: #838ba7;
-  --overlay-2: #949cbb;
-  --subtext-0: #a5adce;
-  --subtext-1: #b5bfe2;
-  --text: #c6d0f5;
-  --lavender: #babbf1;
-  --blue: #8caaee;
-  --saphire: #85c1dc;
-  --sky: #99d1db;
-  --teal: #81c8be;
-  --green: #a6d189;
-  --yellow: #e5c890;
-  --peach: #ef9f76;
-  --maroon: #ea999c;
-  --red: #e78284;
-  --mauve: #ca9ee6;
-  --pink: #f4b8e4;
-  --flamingo: #eebebe;
-  --rosewater: #f2d5cf;
-  --font-14: 14px;
-  --font-16: 16px;
-  --font-18: 18px;
-  --font-20: 20px;
-  --font-24: 24px;
-  --font-32: 32px;
-  --font-40: 40px;
-  --font-92: 92px;
-}
-
-/* Font Faces */
-
-@font-face {
-  font-family: 'Neue Regarde';
-  src: url("assets/fonts/Neue-Regrade-Variable.ttf") format('truetype');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Neue Regarde Italic';
-  src: url("assets/fonts/Neue-Regrade-Variable.ttf") format('truetype');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'General Sans';
-  src: url("assets/fonts/GeneralSans-Variable.woff2") format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* SCSS Variables */
-$quad-cubic-bezier: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-$short: 0.2s;
-$medium: 0.3s;
-$long: 0.5s;
-$xlong: 0.75s;
-$golden-ratio: 1.618;
-$sans-serif: ui-sans-serif, sans-serif;
-$neue-regarde: 'Neue Regarde', $sans-serif;
-$neue-regarde-italic: 'Neue Regarde Italic', $sans-serif;
-$general-sans: 'General Sans', $sans-serif;
-$inter: 'Inter', $sans-serif;
-$jetbrains-mono: 'JetBrains Mono', ui-monospace, monospace;
-$border-10: 10px;
-$border-20: 20px;
-$border-30: 30px;
-
-/* Functions */
-@function transition($property, $duration: $short, $timing: $quad-cubic-bezier) {
-  @return #{$property} #{$duration} #{$timing};
-}
-
-/* Mixins */
-
-@mixin background-text {
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: changeColor 5s infinite alternate;
-}
+@use 'index' as *;
 
 * {
   margin: 0;
@@ -107,9 +11,8 @@ html {
 }
 
 body {
+  @include font($size: var(--font-16), $color: var(--text));
   font-family: $general-sans;
-  font-size: var(--font-16);
-  color: var(--text);
   background-color: var(--crust);
   line-height: $golden-ratio;
 }
@@ -136,21 +39,59 @@ strong, b {
   font-family: $inter;
 }
 
+nav {
+  position: sticky;
+  top: 15%;
+  margin: 0 auto;
+  width: fit-content;
+  z-index: 1;
+  outline: 2px solid var(--surface-2);
+  border-radius: $border-30;
+  background-color: var(--mantle);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+
+  ul {
+    @include flex($justify: center, $align: center, $gap: 20px);
+    padding: 10px 20px;
+    position: relative;
+    list-style: none;
+  }
+
+  li {
+    @include font(var(--font-20), 600, var(--text));
+    @include flex($align: center, $justify: center);
+    width: 200px;
+    border-radius: $border-30;
+
+    &:first-of-type {
+      transition: transition(left, $long), transition(outline-color, $long);
+      width: 250px;
+      position: absolute;
+      outline: 5px solid transparent;
+      top: 0;
+      height: 100%;
+    }
+
+    a {
+      @include flex($gap: 10px, $align: center);
+      text-decoration: none;
+    }
+  }
+}
+
 header {
+  @include flex($align: flex-end);
   background-image: url("assets/pics/baner.gif");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
   height: 1080px;
-  display: flex;
-  align-items: flex-end;
+  background-position: 3vw -37.5vh;
 }
 
 h1 {
   background: linear-gradient(to top right, var(--text), var(--blue), var(--maroon), var(--pink));
   @include background-text;
-  margin-left: 10%;
-  margin-bottom: 15%;
+  margin: 0 0 15% 10%;
   font-size: var(--font-92);
   letter-spacing: 0.05em;
 
@@ -158,7 +99,7 @@ h1 {
     display: inline-block;
     width: 5px;
     height: 1em;
-    background: var(--text);
+    background-color: var(--text);
     margin-left: 2px;
     animation: blink 1s steps(1) infinite;
     vertical-align: middle;
@@ -169,15 +110,14 @@ h2 {
   font-size: var(--font-40);
 
   a {
-    transition: transition(color);
+    font-family: $jetbrains-mono;
 
     &:first-of-type {
-      font-family: $jetbrains-mono;
-      color: var(--mauve);
+      @include color-hover(var(--mauve), var(--lavender));
+    }
 
-      &:hover {
-        color: var(--lavender);
-      }
+    &:nth-of-type(2) {
+      @include color-hover(var(--green), var(--sky));
     }
   }
 }
@@ -197,9 +137,7 @@ section {
       border-radius: 10px;
 
       .scrollable {
-        display: flex;
-        flex-direction: column;
-        gap: 250px;
+        @include flex($direction: column, $gap: 250px);
         margin-left: 20px;
         padding: 25px;
         width: calc(100% - 20px);
@@ -207,22 +145,12 @@ section {
     }
 
     a {
-      color: var(--subtext-1);
+      @include color-hover(var(--subtext-1), var(--mauve));
       font-weight: 500;
-      text-decoration: none;
-
-      &:hover {
-        color: var(--mauve);
-      }
     }
 
     h2 {
-      font-family: $neue-regarde;
-      font-weight: 700;
-      font-size: var(--font-40);
       color: var(--mauve);
-      margin-bottom: 5%;
-      margin-top: 10%;
     }
 
     article {
@@ -250,10 +178,6 @@ section {
       }
     }
 
-    & > *:not(figure) {
-      grid-column: 1 / 1;
-    }
-
     h3 {
       font-size: var(--font-32);
       margin-bottom: 10px;
@@ -264,8 +188,7 @@ section {
     }
 
     p, li {
-      color: var(--subtext-0);
-      font-size: var(--font-18);
+      @include font($size: var(--font-18), $color: var(--subtext-0));
     }
 
     li {
@@ -277,32 +200,24 @@ section {
     }
 
     figure {
+      @include flex($direction: column, $align: center, $gap: 10px);
       position: relative;
       overflow: hidden;
       grid-column: 2 / 3;
       grid-row: 1 / span 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
 
-      figcaption {
+      figcaption, img:first-of-type {
         transition: transition(opacity, $xlong);
         opacity: 0;
       }
 
       &.shown {
-        img:first-of-type {
+        img, figcaption {
           opacity: 1;
         }
 
         img:last-of-type {
           transform: rotate(-20deg) translateY(50px) translateX(-10px);
-          opacity: 1;
-        }
-
-        figcaption {
-          opacity: 1;
         }
       }
     }
@@ -312,29 +227,33 @@ section {
       width: 100%;
       height: auto;
 
-      &:first-of-type {
-        transition: transition(opacity, $xlong);
-        opacity: 0;
-      }
-
       &:last-of-type {
+        @include absolute;
         transition: transition(transform, $xlong), transition(opacity, $xlong);
         opacity: 0;
         transform: translateY(200px) rotate(0deg) translateX(0);
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 120px;
         height: 120px;
       }
     }
   }
+
+  &:nth-of-type(2) {
+    h2 {
+      color: var(--green);
+    }
+  }
+
+  h2 {
+    @include font(var(--font-40), 700, inherit);
+    font-family: $neue-regarde;
+    margin-bottom: 5%;
+    margin-top: 10%;
+  }
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex($direction: column, $align: center);
 }
 
 .scrollable {
@@ -346,9 +265,7 @@ main {
 }
 
 .scroller-track {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  @include absolute(10px, 10px);
   width: 6px;
   height: calc(100% - 20px);
   background: var(--surface-2);
@@ -358,14 +275,12 @@ main {
 }
 
 .scroller-thumb {
+  @include absolute;
+  transition: transition(height, $xlong);
   display: block;
   width: 100%;
   background: var(--mauve);
   border-radius: 3px;
-  transition: transition(height, $xlong);
-  position: absolute;
-  left: 0;
-  top: 0;
   height: 5%;
 }
 

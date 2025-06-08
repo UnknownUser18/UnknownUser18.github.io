@@ -76,15 +76,19 @@ function updateArticlesVisibility() {
   });
 }
 
+let span = document.querySelector('nav li:first-child');
+const sections = document.querySelectorAll('section');
+
 function updateAll() {
   updateThumb();
   updateFiguresVisibility();
   updateArticlesVisibility();
+  checkNavSpan();
 }
 
 scrollable.addEventListener('scroll', updateAll);
 window.addEventListener('resize', updateAll);
-
+window.addEventListener('scroll', checkNavSpan);
 updateAll();
 
 function createChart() {
@@ -143,4 +147,37 @@ function createChart() {
       }
     }
   });
+}
+
+function checkNavSpan() {
+  sections.forEach((section, index) => {
+    if (isElementVisible(section) && (index === 0 || !isElementVisible(sections[index - 1]))) {
+      const navElement = document.querySelector(`nav li:nth-child(${ index + 1 })`);
+      let left = parseInt(getComputedStyle(navElement).width);
+      if (index === 1) left += 10;
+      else if (index > 1) left += 20 * (index - 1);
+      else left = 0;
+      span.style.left = `${ left }px`;
+      let color;
+      switch (index) {
+        case 0:
+          color = 'var(--lavender)';
+          break;
+        case 1:
+          color = 'var(--green)';
+          break;
+      }
+      span.style.outlineColor = color;
+    }
+  });
+}
+
+
+function isElementVisible(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.bottom > 0 &&
+    rect.top < window.innerHeight / 2 &&
+    rect.bottom > window.innerHeight / 2
+  );
 }
