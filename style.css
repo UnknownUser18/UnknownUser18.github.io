@@ -105,7 +105,7 @@ strong, b {
 
 header {
   background-image: url("assets/pics/baner.gif");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 1080px;
