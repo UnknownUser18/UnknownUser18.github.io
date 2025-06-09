@@ -331,7 +331,7 @@ section {
       gap: 20px;
       position: relative;
 
-      .figure {
+      figure {
         @include flex(column, center, center);
         gap: 20px;
       }
@@ -427,30 +427,142 @@ footer {
   grid-template-rows: 1fr 0.05fr;
   row-gap: 10px;
   column-gap: 20px;
+
   & > div:first-of-type {
     place-self: center start;
   }
+
   & > div:last-of-type {
     place-self: center end;
   }
+
   img {
     cursor: pointer;
     width: 50%;
     height: auto;
   }
+
   h3 {
     @include font(var(--font-24), 700, var(--text));
   }
+
   li {
     margin-left: 16px;
   }
+
   a {
     @include color-hover(var(--mauve), var(--lavender));
     text-decoration: none;
   }
+
   p {
     grid-column: 1 / -1;
     @include font(var(--font-18), var(--subtext-0));
     text-align: center;
+  }
+}
+
+@media (max-width: 1280px) {
+  header {
+    background-position: -20vw -5.5vh;
+  }
+
+  section {
+    width: 90%;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --font-92: 3.5rem;
+    --font-40: 1.5rem;
+    --font-32: 1.5rem;
+    --font-24: 1.25rem;
+    --font-18: 1rem;
+    --font-16: 1rem;
+  }
+  body {
+    line-height: 2;
+  }
+  nav {
+    border-radius: 0 0 $border-30 $border-30;
+    top: 0;
+    width: 100%;
+
+    &.visible {
+      ul {
+        padding: 5px 10px;
+      }
+
+      li {
+        width: fit-content;
+
+        &:first-of-type {
+          border-radius: 0 0 $border-30 $border-30;
+          width: 35% !important;
+        }
+      }
+    }
+  }
+
+  header {
+    background-image: url('assets/pics/baner.webp');
+    background-position: center;
+    height: 300px;
+    background-size: contain;
+  }
+  section {
+    &:first-of-type {
+      width: 95%;
+
+      .scrollable {
+        gap: 500px;
+      }
+
+      article {
+        height: 750px;
+        @include flex(column, start, start, 20px);
+
+        &:nth-of-type(2) img:first-of-type {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        figure {
+          overflow: visible;
+
+
+          &.shown img:last-of-type {
+            width: 75px;
+            height: 75px;
+            transform: rotate(-20deg) translateY(20px) translateX(-10px);
+          }
+
+          img:first-of-type {
+            position: static;
+          }
+        }
+      }
+    }
+
+    &:nth-of-type(2) {
+      i {
+        text-align: center;
+      }
+
+      article img {
+        position: static;
+        translate: 0;
+      }
+    }
+  }
+  h2 {
+    text-align: center;
+  }
+  footer {
+    @include flex(column, center, center);
+    div:last-of-type {
+      @include flex(row, center, center);
+    }
   }
 }

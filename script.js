@@ -66,10 +66,15 @@ function updateArticlesVisibility() {
     const visibleHeight = Math.max(0, Math.min(rect.bottom, scrollableRect.bottom) - Math.max(rect.top, scrollableRect.top));
     const percentVisible = Math.min(1, visibleHeight * 2 / rect.height);
 
-    article.style.opacity = percentVisible.toString();
-    article.style.transform = `translateY(${ 60 * (1 - percentVisible) }px)`;
-    article.style.filter = `blur(${ (1 - percentVisible) * 1.5 }px)`;
-    article.classList.toggle('visible', percentVisible > 0.75);
+    const isMobile = window.innerWidth < 768;
+    const translateY = isMobile ? 120 * (1 - percentVisible) : 60 * (1 - percentVisible);
+    const blur = isMobile ? (1 - percentVisible) * 0.2 : (1 - percentVisible) * 1.5;
+    const visibleThreshold = isMobile ? 0.9 : 0.75;
+
+    article.style.opacity = isMobile ? 0.5 + percentVisible : percentVisible.toString();
+    article.style.transform = `translateY(${ translateY }px)`;
+    article.style.filter = `blur(${ blur }px)`;
+    article.classList.toggle('visible', percentVisible > visibleThreshold);
 
     if (article.classList.contains('with-chart') && percentVisible > 0.5 && !article.classList.contains('chart-created')) {
       createChart();
@@ -141,9 +146,16 @@ function checkNavSpan() {
     if (isElementVisible(section) && (index === 0 || !isElementVisible(sections[index - 1]))) {
       const navElement = document.querySelector(`nav li:nth-child(${ index + 1 })`);
       let left = parseInt(getComputedStyle(navElement).width);
-      if (index === 0) left = 0;
-      else if (index === 1) left += 10;
-      else left += 30 + ((index - 1) * left);
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
+        if (index === 0) left = 0;
+        else if (index === 1) left += 35;
+        else left += 15 + ((index - 1) * left);
+      } else {
+        if (index === 0) left = 0;
+        else if (index === 1) left += 10;
+        else left += 30 + ((index - 1) * left);
+      }
       span.style.left = `${ left }px`;
       let color;
       switch (index) {
@@ -179,15 +191,14 @@ function checkIfSectionVisible() {
   if (!navWasShown && halfVisible) {
     nav.classList.add('visible');
     navWasShown = true;
-  }
-  else if (!navWasShown && !scrolledDown && rect.bottom <= 0) {
+  } else if (!navWasShown && !scrolledDown && rect.bottom <= 0) {
     nav.classList.remove('visible');
     navWasShown = false;
   }
 }
 
 const form = document.querySelector('form');
-const indexes = ['yellow', 'red', 'orange'];
+const indexes = [ 'yellow', 'red', 'orange' ];
 form.addEventListener('input', () => {
   const input = form.querySelector('input:checked');
   const value = input.value.trim();
