@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" href="assets/pics/duck_yellow.png" type="image/png">
+  <link rel="icon" href="assets/pics/duck_yellow.webp" type="image/webm">
   <link rel="preload" href="assets/pics/baner.gif" as="image" type="image/gif">
   <title>Kaczuszki</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -21,6 +21,7 @@
     <li></li>
     <li><a href="#debugging"><i class="fa-solid fa-bug-slash"></i>Debugging</a></li>
     <li><a href="#writing-code"><i class="fa-solid fa-code"></i>Pisanie kodu</a></li>
+    <li><a href="#gallery"><i class="fa-solid fa-images"></i>Galeria</a></li>
   </ul>
 </nav>
 <header>
@@ -28,7 +29,6 @@
 </header>
 <main>
   <h2>Kaczuszki dla <a href="#debugging"><i class="fa-solid fa-bug-slash"></i>debuggowania</a>, <a href="#writing-code"><i class="fa-solid fa-code"></i>pisania kodu</a>.</h2>
-
   <section id="debugging">
     <h2>Dla <i class="fa-solid fa-bug-slash"></i> debuggowania - Rubber Duck Debugging</h2>
     <div>
@@ -46,7 +46,7 @@
           </ul>
           <figure>
             <img src="assets/pics/code.webp" alt="Kodzik">
-            <img src="assets/pics/duck_yellow.png" alt="Kaczuszka">
+            <img src="assets/pics/duck_yellow.webp" alt="Kaczuszka">
             <figcaption>Przykład kodu do debugowania z kaczuszką</figcaption>
           </figure>
         </article>
@@ -86,8 +86,136 @@
   </section>
   <section id="writing-code">
     <h2>Dla <i class="fa-solid fa-code"></i> pisania kodu</h2>
+    <div>
+      <i>Wybierz jeden z kolorów do wyświetlenia treści</i>
+      <form>
+        <label>
+          <input type="radio" name="color" value="yellow">
+          <span class="color yellow"></span>
+          <span class="color-name">Żółta</span>
+        </label>
+        <label>
+          <input type="radio" name="color" value="red">
+          <span class="color red"></span>
+          <span class="color-name">Czerwona</span>
+        </label>
+        <label>
+          <input type="radio" name="color" value="orange">
+          <span class="color orange"></span>
+          <span class="color-name">Pomarańczowa</span>
+        </label>
+      </form>
+      <article class="hidden">
+        <img src="assets/pics/duck_yellow.webp" alt="Kaczuszka żółta">
+        <h3><i class="fa-solid fa-laptop-code"></i> IDE i edytory kodu</h3>
+        <h4>Visual Studio Code (VS Code)</h4>
+        <p><b><a href="https://marketplace.visualstudio.com/items?itemName=CS50.ddb50" target="_blank" title="Link do rozszerzenia 'Rubber Duck Debugger'">Rubber Duck Debugger</a></b> — plugin, który wyświetla małą gumową kaczuszkę w rogu edytora. Możesz na nią kliknąć, a pojawia się <i>"okno tłumaczenia kodu"</i> — piszesz, co Twój kod powinien robić, pomaga to uporządkować myślenie.</p>
+        <p><b><a href="https://marketplace.visualstudio.com/items?itemName=Rubberduck.rubberduck-vscode" target="_blank" title="Link do rozszerzenia 'Rubber Duck Assistant'">Rubber Duck Assistant</a></b> — plugin integrujący się z np. Copilotem lub ChatGPT, który prowadzi Cię przez tłumaczenie kodu — zadaje pytania w stylu: <i>"Dlaczego ta zmienna jest tutaj globalna?"</i>, <i>"Co powinno się stać, jeśli ta pętla nie zakończy się?</i>.</p>
+        <h4>JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm itp.)</h4>
+        <p>Pluginy typu Code With Me + Duck Mode (wewnętrzne rozwiązania niektórych zespołów). Możliwość stworzenia własnego live template np. "Duck Explain Session" → generuje gotowy szablon do opisania funkcji w komentarzach.</p>
+        <h4>Vim, Emacs</h4>
+        <p>Pluginy typu <b>Rubber Duck Vim Plugin</b> — prosta komenda np. :Duck otwiera bufor tekstowy do "rozmowy z kaczuszką".</p>
+      </article>
+      <article class="hidden">
+        <img src="assets/pics/duck_red.webp" alt="Kaczuszka czerwona">
+        <h3><i class="fa-solid fa-message"></i> Komunikatory</h3>
+        <h4>Slack</h4>
+        <p>Emoji 🦆 jest nieformalnym sygnałem kulturowym:</p>
+        <ul>
+          <li>Wątek oznaczony 🦆 → <i>"jeszcze próbuję sam (z kaczuszką), proszę nie odpowiadać od razu"</i>.</li>
+          <li>Kanał <b>#rubber-duck-debugging</b> — dedykowany kanał na Slacku, gdzie ludzie publicznie tłumaczą swoje problemy.</li>
+          <li>Boty Slackowe, które pomagają w tłumaczeniu kodu.</li>
+        </ul>
+        <h4>Microsoft Teams</h4>
+        <p>Te same praktyki z emoji 🦆. Niektóre zespoły używają Teams Apps lub Power Automate, by zautomatyzować "kaczkowe" przypomnienia:</p>
+        <ul>
+          <li>Przed wysłaniem pytania na channel pojawia się przypomnienie:</li>
+          <li><i>"Did you try explaining it to your duck first?"</i></li>
+        </ul>
+        <h4>Discord</h4>
+        <ul>
+          <li>Kanały typu <b>#debug-duck</b> na serwerach developerskich.</li>
+          <li>Boty Discordowe, które losowo przypominają o próbie Rubber Duck Debugging zanim się poprosi o pomoc.</li>
+        </ul>
+      </article>
+      <article class="hidden">
+        <img src="assets/pics/duck_orange.webp" alt="Kaczuszka pomarańczowa">
+        <h3><i class="fa-solid fa-graduation-cap"></i>Nauka i mentoring</h3>
+        <h4>Dlaczego to działa tak dobrze w edukacji?</h4>
+        <p>Nauka programowania to nie tylko pisanie kodu, ale przede wszystkim rozumienie, co się dzieje i jasne tłumaczenie:</p>
+        <ul>
+          <li>Początkujący często mają w głowie "mgłę" — kod działa, ale nie wiadomo dlaczego;</li>
+          <li>Tłumaczenie kodu kaczuszcze:
+            <ul>
+              <li>Wymusza jasne myślenie,</li>
+              <li>Ujawnia luki w rozumieniu,</li>
+              <li>Pomaga odkryć błędy.</li>
+            </ul>
+          </li>
+          <li>Bardzo naturalna metoda rozwoju metakognicji (świadomości własnego myślenia)</li>
+        </ul>
+        <h4>Gdzie to się stosuje?</h4>
+        <ul>
+          <li>Bootcampy programistyczne (np. JavaScript, Python, Fullstack Web Dev)</li>
+          <li>Kaczuszka w pakiecie startowym:
+            <ul>
+              <li>Uczestnicy bootcampu dostają gumową kaczuszkę razem z materiałami.</li>
+            </ul>
+          </li>
+          <li>Mentorzy uczą od pierwszego dnia:
+            <ul>
+              <li><i>"Nie pytaj mentora od razu — spróbuj wyjaśnić kaczuszce"</i>.</li>
+              <li>Na niektórych bootcampach jest rytuał <i>"Talk to your duck first"</i> przed każdym stand-upem.</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>
+  <section id="gallery">
+    <h2><i class="fa-solid fa-images"></i> Galeria</h2>
+    <div class="galeria">
+      <figure>
+        <img src="assets/pics/duck_yellow.webp" alt="Kaczuszka żółta">
+        <figcaption>Żółta kaczuszka</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pics/duck_red.webp" alt="Kaczuszka czerwona">
+        <figcaption>Czerwona kaczuszka</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pics/duck_orange.webp" alt="Kaczuszka pomarańczowa">
+        <figcaption>Pomarańczowa kaczuszka</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pics/kaczuszka_kodzik.webp" alt="Kaczuszka z kodem">
+        <figcaption>Kaczuszka z kodem</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pics/kaczuszka.webp" alt="Kaczuszka">
+        <figcaption>Gumowa kaczuszka</figcaption>
+      </figure>
+    </div>
   </section>
 </main>
-</body>
+<footer>
+  <div>
+    <h3>Przydatne strony o kaczkach <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+    <ul>
+      <li><a href="https://pl.wikipedia.org/wiki/Metoda_gumowej_kaczuszki" target="_blank" title="Wikipedia — Metoda gumowej kaczuszki">Wikipedia — Metoda gumowej kaczuszki</a></li>
+      <li><a href="https://www.pragmaticprogrammer.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition" target="_blank" title="The Pragmatic Programmer 20th Anniversary Edition">The Pragmatic Programmer 20th Anniversary Edition</a></li>
+      <li><a href="https://futurecollars.com/metoda-gumowej-kaczuszki/" target="_blank" title="Future Collars">Future Collars</a></li>
+      <li><a href="https://www.freecodecamp.org/news/rubber-duck-debugging/" target="_blank" title="FreeCodeCamp — Rubber Duck Debugging">FreeCodeCamp — Rubber Duck Debugging</a></li>
+    </ul>
+  </div>
+  <div>
+    <img src="assets/pics/duck_yellow.webp" alt="Kaczuszka żółta">
+    <audio>
+      <source src="assets/quack.mp3" type="audio/mp3">
+    </audio>
+  </div>
+  <p>&copy; by Aleksander Klonowski</p>
+</footer>
 <script src="script.js"></script>
+</body>
 </html>

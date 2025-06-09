@@ -40,35 +40,50 @@ strong, b {
 }
 
 nav {
+  transition: transition(opacity, $xlong);
   position: sticky;
   top: 15%;
+  opacity: 0;
   margin: 0 auto;
   width: fit-content;
-  z-index: 1;
+  z-index: 2;
   outline: 2px solid var(--surface-2);
   border-radius: $border-30;
   background-color: var(--mantle);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
 
+  &.visible {
+    opacity: 1;
+
+    ul {
+      padding: 10px 20px;
+    }
+
+    li {
+      @include font(var(--font-18), 600, var(--text));
+    }
+  }
+
   ul {
     @include flex($justify: center, $align: center, $gap: 20px);
-    padding: 10px 20px;
     position: relative;
     list-style: none;
   }
 
   li {
-    @include font(var(--font-20), 600, var(--text));
+    transition: transition(font-size, $xlong);
+    font-size: 0;
     @include flex($align: center, $justify: center);
     width: 200px;
     border-radius: $border-30;
+    z-index: 1;
 
     &:first-of-type {
-      transition: transition(left, $long), transition(outline-color, $long);
+      @include absolute;
+      z-index: 0;
+      transition: transition(left, $xlong), transition(outline-color, $xlong);
       width: 250px;
-      position: absolute;
       outline: 5px solid transparent;
-      top: 0;
       height: 100%;
     }
 
@@ -239,8 +254,87 @@ section {
   }
 
   &:nth-of-type(2) {
+    & > div {
+      overflow-x: hidden;
+      @include flex(column, center, center, 20px);
+      background-color: var(--mantle);
+      padding: 20px;
+      border-radius: $border-30;
+    }
+
     h2 {
       color: var(--green);
+    }
+
+    article {
+      position: relative;
+      @include flex(column, center, start, 20px);
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      background-color: var(--mantle);
+      border-radius: $border-30;
+
+      &.hidden {
+        display: none;
+      }
+
+      img {
+        position: absolute;
+        top: -25%;
+        translate: 0 -35%;
+        width: 250px;
+        height: auto;
+      }
+
+      h3 {
+        @include font(var(--font-32), 700, var(--text));
+        color: transparent;
+        background: linear-gradient(to top right, var(--green), var(--teal), var(--blue), var(--saphire));
+        @include background-text;
+        margin-bottom: 10px;
+      }
+
+      h4 {
+        @include font(var(--font-24), 600, var(--text));
+        margin-bottom: 10px;
+      }
+
+      b a {
+        @include color-hover(var(--green), var(--teal));
+        text-decoration: none;
+      }
+
+      li {
+        margin-left: 16px;
+
+        &::marker {
+          color: var(--green);
+        }
+      }
+    }
+  }
+
+  &:last-of-type {
+    h2 {
+      color: var(--pink);
+    }
+
+    .galeria {
+      @include flex($align: center, $gap: 150px);
+      flex-wrap: nowrap;
+      width: 100%;
+      overflow-x: auto;
+      padding: 20px;
+      background-color: var(--mantle);
+      border-radius: $border-30;
+      gap: 20px;
+      position: relative;
+
+      .figure {
+        @include flex(column, center, center);
+        gap: 20px;
+      }
     }
   }
 
@@ -249,6 +343,27 @@ section {
     font-family: $neue-regarde;
     margin-bottom: 5%;
     margin-top: 10%;
+  }
+}
+
+form {
+  @include flex(column, center, start, 20px);
+  background-color: var(--base);
+  padding: 15px 25px;
+  border-radius: $border-30;
+  font-size: var(--font-18);
+  font-weight: 500;
+
+  label {
+    cursor: pointer;
+
+    &:hover span {
+      color: var(--green);
+    }
+  }
+
+  span {
+    transition: transition(color);
   }
 }
 
@@ -299,5 +414,43 @@ main {
   }
   51%, 100% {
     opacity: 0;
+  }
+}
+
+footer {
+  margin-top: 50px;
+  background-color: var(--mantle);
+  border-radius: $border-10;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 0.05fr;
+  row-gap: 10px;
+  column-gap: 20px;
+  & > div:first-of-type {
+    place-self: center start;
+  }
+  & > div:last-of-type {
+    place-self: center end;
+  }
+  img {
+    cursor: pointer;
+    width: 50%;
+    height: auto;
+  }
+  h3 {
+    @include font(var(--font-24), 700, var(--text));
+  }
+  li {
+    margin-left: 16px;
+  }
+  a {
+    @include color-hover(var(--mauve), var(--lavender));
+    text-decoration: none;
+  }
+  p {
+    grid-column: 1 / -1;
+    @include font(var(--font-18), var(--subtext-0));
+    text-align: center;
   }
 }
